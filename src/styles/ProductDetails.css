@@ -1,0 +1,408 @@
+/* MAIN TAG STYLING */
+.productDetails_main {
+  display: flex;
+  flex-flow: column nowrap;
+  /* justify-content: space-between; */
+  width: 100vw;
+  height: 100dvh;
+  border: 2px solid black;
+  padding-top: 85px;
+  overflow-y: hidden;
+}
+
+/* P TAG USED TO GO BACK */
+.productDetails_goBackTag {
+  height: 7%;
+  align-content: center;
+  padding-left: 10px;
+}
+
+.productDetails_goBackTag:hover {
+  font-size: 1.05rem;
+  transition-duration: 0.3s;
+  font-weight: 700;
+}
+
+/* MAIN CONTENT */
+.productDetails_mainContent {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  height: 75%;
+  border: 2px solid black;
+}
+
+/*IMAGE SELECTION CONTAINER*/
+.productDetails_imageSelection {
+  width: 15%;
+  /* border: 2px solid red; */
+}
+
+.productDetails_imageSelectDiv {
+  border: 2px solid black;
+  height: 21%;
+  margin: 5% auto 0%;
+  width: 80%;
+  border-radius: 10px;
+}
+
+.productDetails_imageSelectDiv:hover{
+  border: 3px solid black;
+transform: scale(1.1);
+transition-duration: 0.4s;
+}
+
+.productDetails_imageSelectDiv:hover {
+  filter: scale(1.1);
+}
+
+.productDetailImg{
+    width:100%;
+    height:100%;
+    border-radius: 9px;
+}
+
+/*IMAGE DISPLAY CONTAINER*/
+.productDetails_imageDisplay {
+  width: 35%;
+  /* border: 2px solid rgb(0, 17, 255); */
+  height: 100%;
+}
+
+.productDetails_selectedDisplay{
+   width:100%;
+    height:100%;
+}
+
+/* THE SHOES INFORMATION */
+.productDetails_shoeInfo {
+  width: 50%;
+  /* border: 2px solid rgb(12, 255, 32); */
+  padding-left: 20px;
+  background-color: white;
+  padding-top: 5px;
+  position: relative;
+}
+
+.productDetails_name {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.productDetails_price {
+  font-weight: 700;
+  margin-top: 0.8%;
+}
+
+.productDetails_shoeDetail {
+  color: rgba(0, 0, 0, 0.87);
+  margin-top: 2%;
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+.productDetails_shoeSelectedColor {
+  margin-top: 3%;
+}
+
+/* DIV USED TO HOLD THE SHOES COLOR */
+.productDetails_shoeColorSection {
+  display: flex;
+  width: 100%;
+  margin-top: 1.25%;
+  justify-content: left;
+}
+
+.productDetails_shoeColor {
+  margin-right: 1%;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+
+/* SHOE SIZE INFORMATION */
+
+.productDetails_shoeSizeTitle {
+  margin-top: 3%;
+}
+
+.productDetails_shoeSizeSection {
+  display: flex;
+  justify-content: left;
+  flex-flow: row wrap;
+  width: 100%;
+  margin-top: 1.25%;
+}
+
+.productDetails_shoeSize {
+  margin-right: 3%;
+  margin-top: 0.5%;
+  padding: 5px 0px;
+  width: 45px;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.productDetails_shoeSize:hover {
+background-color: black;
+color: white;
+transform: translate(1.2);
+}
+
+.productDetails_selectedShoeSize{
+background-color: black;
+color: white
+}
+
+/* SHOE QUANTITY STYLING */
+.productDetails_shoeQuantitySection {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  width: 100%;
+  margin-top: 4%;
+  margin-bottom: 100px;
+}
+
+.productDetails_shoeQuantityTitle {
+  margin-right: 2%;
+}
+
+/* COUNTER BUTTONS AND INPUT */
+
+.productDetails_counterSection{
+  display: flex;
+  align-items: center;
+}
+
+.productDetails_counterValue{
+  width: 40px;
+  border-radius: 0px;
+  height: 32px;
+   border-style: hidden;
+ border-top: 2px solid black;
+  border-bottom:2px solid black;
+  text-align: center;
+  padding-top: 3px;
+}
+
+.productDetails_decreaseBtn, .productDetails_increaseBtn {
+height:32px ;
+  width: 40px;
+  border:2px solid black;
+}
+
+.productDetails_decreaseBtn{
+  border-radius: 5px 0px 0px 5px;
+}
+
+.productDetails_increaseBtn{
+  border-radius: 0px 5px 5px 0px;
+}
+
+
+/* CART & WISHLIST BUTTON SECTION */
+.productDetails_addToBtns {
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  bottom: 8px;
+  margin-top: 3%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  /* border: 2px solid rgb(255, 0, 179); */
+}
+
+.productDetails_AddToCartBtn {
+  margin-right: 4%;
+  border-radius: 5px;
+  padding: 0px 25px;
+  color: white;
+  background-color: black;
+  width: 160px;
+}
+
+.productDetails_AddToWishlistBtn {
+  margin-left: 4%;
+  border-radius: 5px;
+  padding: 0px 25px;
+  border-color: black;
+  background-color: white;
+  width: 160px;
+}
+
+/* REVIEWS DISPLAY */
+.reviewFooter {
+  height: 18%;
+  /* border: 2px solid rgb(255, 0, 179); */
+  padding-top: 5px;
+  padding-left: 15px;
+}
+
+.productDetails_h3 {
+  font-weight: 650;
+  font-size: 1.1rem;
+}
+
+.productDetails_starsSection {
+  display: flex;
+  width: auto;
+  align-items: center;
+}
+
+.productDetails_stars {
+  margin-right: 1%;
+  width: 35px;
+  color: rgba(245, 245, 16, 0.856);
+  height: 45px;
+}
+
+.productDetails_reviewsPtag{
+  margin-left: 30px;
+}
+
+/* MEDIA QUERRIES */
+@media screen and (max-width:715px){
+
+  .productDetails_main {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100vw;
+  height: auto;
+  border: 2px solid black;
+  padding-top: 90px;
+  overflow-y: scroll;
+}
+
+.productDetails_goBackTag {
+  height: 7%;
+  padding-bottom: 10px;
+}
+
+.productDetails_mainContent {
+  flex-flow: row wrap;
+}
+
+.productDetails_imageSelection {
+  display: flex;
+  order:3;
+  width: 100%;
+  flex-flow:row nowrap;
+  height:auto
+}
+
+.productDetails_imageSelectDiv {
+  height: 90px;
+  margin: 1% auto 1%;
+  width: 20%;
+}
+
+
+/*IMAGE DISPLAY CONTAINER*/
+.productDetails_imageDisplay {
+  order:2;
+  width: 50%;
+  height: 100%;
+}
+
+
+/* THE SHOES INFORMATION */
+.productDetails_shoeInfo {
+  order:1;
+  width: 50%;
+  padding-left: 20px;
+  background-color: white;
+  padding-top: 5px;
+  position: relative;
+}
+
+
+/*  shoe image */
+.productDetails_shoeQuantitySection {
+    margin-bottom: 20%;
+}
+
+.productDetails_shoeSizeSection {
+  display: flex;
+  justify-content: left;
+  width: 100%;
+  margin-top: 1.25%;
+  flex-flow: row wrap;
+}
+
+}
+
+@media screen and (max-width: 550px){
+
+  .productDetails_main {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100vw;
+  height: auto;
+  padding-top: 100px;
+  overflow-y: scroll;
+}
+
+.productDetails_goBackTag {
+  height: 7%;
+  padding-bottom: 10px;
+}
+
+.productDetails_mainContent {
+  flex-flow: row wrap;
+}
+
+.productDetails_imageSelection {
+  display: flex;
+  order:3;
+  width: 100%;
+  flex-flow:row nowrap;
+  height:auto
+}
+
+.productDetails_imageSelectDiv {
+  height: 100px;
+  margin: 1% auto 1%;
+  width: 20%;
+}
+
+/*IMAGE DISPLAY CONTAINER*/
+.productDetails_imageDisplay {
+  order:2;
+  width: 100%;
+  height: 350px;
+}
+
+/* THE SHOES INFORMATION */
+.productDetails_shoeInfo {
+  order:1;
+  width: 100%;
+  padding-left: 40px;
+  padding-top: 15px;
+  position: relative;
+}
+
+}
+
+@media screen and (max-width: 490px){
+
+.productDetails_goBackTag {
+  height: 7%;
+  align-content: center;
+  padding-top: 110px;
+}
+
+.productDetails_shoeInfo {
+  padding-left: 5px;
+  padding-top: 5px;
+}
+
+.productDetails_imageSelectDiv {
+  height: 70px;
+  margin: 1% auto 1%;
+  width: 20%;
+}
+
+}

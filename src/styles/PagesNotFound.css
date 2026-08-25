@@ -1,0 +1,47 @@
+.pageNotFoundMain {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  height:100vh;
+  width:100%;
+}
+
+.errorCode{
+    font-size: 10rem;
+    font-weight: bold;
+    text-shadow: 15px 5px 10px rgb(53, 51, 51);
+    padding: 15px;
+}
+
+.errorPageText1{
+    
+    margin: 12px 0px;
+}
+
+.errorPageText2{
+    
+    margin: 0px 0px 12px;
+}
+
+.errorBtn{
+    background-color: black;
+    color:white;
+    width:150px;
+    padding: 10px 5px;
+    border-radius: 5px;
+}
+
+/* MEDIA QUERRIES */
+
+@media screen and (max-width:450px){
+
+
+.errorCode{
+    font-size: 8rem;
+    font-weight: bold;
+    text-shadow: 15px 5px 10px rgb(53, 51, 51);
+    padding: 10px;
+}
+
+}

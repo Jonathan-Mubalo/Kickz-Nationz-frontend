@@ -1,0 +1,722 @@
+/* =====================================================
+   CONTACTS PAGE
+   All classes are prefixed with Contacts_
+===================================================== */
+
+.Contacts_page {
+  width: 100%;
+  min-height: 100vh;
+
+}
+
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.Contacts_main {
+  width: 100%;
+  max-width: 840px;
+
+  margin: 0 auto;
+
+  padding: 14px 22px 12px;
+}
+
+.Contacts_heading {
+  margin-bottom: 11px;
+}
+
+.Contacts_title {
+  margin: 0 0 4px;
+
+  font-size: 32px;
+  line-height: 1.1;
+
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.Contacts_subtitle {
+  margin: 0;
+
+  color: #737373;
+
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+
+/* =====================================================
+   FORM CONTAINER
+===================================================== */
+
+.Contacts_formsContainer {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+}
+
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.Contacts_card {
+  min-width: 0;
+
+  padding: 12px 11px;
+
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+
+  background: #ffffff;
+}
+
+.Contacts_cardHeader {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 9px;
+
+  margin-bottom: 9px;
+}
+
+.Contacts_cardIcon {
+  width: 18px;
+
+  flex-shrink: 0;
+
+  font-size: 16px;
+  line-height: 1.1;
+
+  color: #222222;
+}
+
+.Contacts_cardTitle {
+  margin: 0 0 3px;
+
+  font-size: 11px;
+  line-height: 1.2;
+
+  font-weight: 700;
+}
+
+.Contacts_cardDescription {
+  margin: 0;
+
+  color: #777777;
+
+  font-size: 8px;
+  line-height: 1.4;
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.Contacts_form {
+  width: 100%;
+}
+
+.Contacts_field {
+  width: 100%;
+
+  margin-bottom: 9px;
+}
+
+.Contacts_label {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #222222;
+
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.Contacts_required {
+  color: #e03131;
+  margin-left: 2px;
+}
+
+.Contacts_optional {
+  color: #777777;
+  font-weight: 400;
+  margin-left: 3px;
+}
+
+
+/* =====================================================
+   INPUTS
+===================================================== */
+
+.Contacts_input,
+.Contacts_select,
+.Contacts_textarea {
+  width: 100%;
+
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+
+  background: #ffffff;
+
+  color: #222222;
+
+  font-family: inherit;
+  font-size: 8px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.Contacts_input {
+  height: 21px;
+
+  padding: 0 8px;
+}
+
+.Contacts_select {
+  height: 25px;
+
+  padding: 0 8px;
+
+  cursor: pointer;
+}
+
+.Contacts_input::placeholder,
+.Contacts_textarea::placeholder {
+  color: #999999;
+}
+
+.Contacts_input:focus,
+.Contacts_select:focus,
+.Contacts_textarea:focus {
+  border-color: #555555;
+
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+
+/* =====================================================
+   TEXTAREA
+===================================================== */
+
+.Contacts_textareaWrapper {
+  position: relative;
+
+  width: 100%;
+}
+
+.Contacts_textarea {
+  display: block;
+
+  width: 100%;
+  height: 42px;
+
+  padding: 7px 8px 14px;
+
+  resize: vertical;
+
+  line-height: 1.4;
+}
+
+.Contacts_reviewTextarea {
+  height: 72px;
+}
+
+.Contacts_characterCount {
+  position: absolute;
+
+  right: 7px;
+  bottom: 4px;
+
+  color: #888888;
+
+  font-size: 7px;
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   RADIO BUTTONS
+===================================================== */
+
+.Contacts_radioGroup {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 7px;
+}
+
+.Contacts_radioCard {
+  min-height: 39px;
+
+  padding: 6px 7px;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 7px;
+
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.Contacts_radioCard:hover {
+  border-color: #999999;
+}
+
+.Contacts_radioSelected {
+  border-color: #b9b9b9;
+  background: #fafafa;
+}
+
+.Contacts_radioInput {
+  width: 11px;
+  height: 11px;
+
+  margin: 1px 0 0;
+
+  flex-shrink: 0;
+
+  accent-color: #1677d2;
+
+  cursor: pointer;
+}
+
+.Contacts_radioContent {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.Contacts_radioTitle {
+  color: #333333;
+
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.Contacts_radioDescription {
+  color: #777777;
+
+  font-size: 6.5px;
+  line-height: 1.3;
+}
+
+
+/* =====================================================
+   RATING
+===================================================== */
+
+.Contacts_rating {
+  height: 24px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 4px;
+}
+
+.Contacts_starButton {
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  color: #27313a;
+
+  font-size: 19px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    color 0.15s ease;
+}
+
+.Contacts_starButton:hover {
+  transform: scale(1.1);
+}
+
+.Contacts_starActive {
+  color: #111111;
+}
+
+
+/* =====================================================
+   SUBMIT BUTTON
+===================================================== */
+
+.Contacts_submitButton {
+  width: 100%;
+  height: 26px;
+
+  margin-top: 1px;
+
+  border: none;
+  border-radius: 3px;
+
+  background: #000000;
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  font-family: inherit;
+  font-size: 8px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease;
+}
+
+.Contacts_submitButton:hover {
+  background: #222222;
+}
+
+.Contacts_submitButton:active {
+  transform: scale(0.99);
+}
+
+.Contacts_buttonIcon {
+  font-size: 12px;
+  line-height: 1;
+}
+
+
+/* =====================================================
+   FEATURES
+===================================================== */
+
+.Contacts_features {
+  width: 100%;
+  max-width: 840px;
+
+  margin: 0 auto;
+
+  padding: 10px 22px 0;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.Contacts_feature {
+  min-height: 55px;
+
+  padding: 4px 18px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  border-right: 1px solid #dddddd;
+}
+
+.Contacts_feature:first-child {
+  padding-left: 0;
+}
+
+.Contacts_feature:last-child {
+  border-right: none;
+}
+
+.Contacts_featureIcon {
+  width: 28px;
+
+  flex-shrink: 0;
+
+  color: #27333d;
+
+  font-size: 23px;
+  line-height: 1;
+
+  text-align: center;
+}
+
+.Contacts_featureContent {
+  min-width: 0;
+}
+
+.Contacts_featureTitle {
+  margin: 0 0 4px;
+
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.Contacts_featureText {
+  margin: 0;
+
+  color: #777777;
+
+  font-size: 7px;
+  line-height: 1.45;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 768px) {
+
+  .Contacts_header {
+    min-height: auto;
+
+    padding: 14px 20px;
+
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 12px;
+  }
+
+  .Contacts_navigation {
+    width: 100%;
+
+    height: auto;
+
+    justify-content: flex-start;
+
+    gap: 20px;
+
+    overflow-x: auto;
+
+    padding-bottom: 3px;
+  }
+
+  .Contacts_navLink {
+    height: 28px;
+
+    font-size: 10px;
+  }
+
+  .Contacts_main {
+    padding: 24px 20px 15px;
+  }
+
+  .Contacts_title {
+    font-size: 30px;
+  }
+
+  .Contacts_formsContainer {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+
+  .Contacts_card {
+    padding: 15px;
+  }
+
+  .Contacts_features {
+    padding: 20px;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    row-gap: 15px;
+  }
+
+  .Contacts_feature {
+    padding: 8px 12px;
+
+    border-right: none;
+  }
+
+  .Contacts_feature:nth-child(odd) {
+    border-right: 1px solid #dddddd;
+  }
+
+  .Contacts_feature:first-child {
+    padding-left: 12px;
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 520px) {
+
+  .Contacts_header {
+    padding: 15px;
+  }
+
+  .Contacts_logo {
+    font-size: 20px;
+  }
+
+  .Contacts_navigation {
+    gap: 16px;
+  }
+
+  .Contacts_navLink {
+    font-size: 9px;
+  }
+
+  .Contacts_main {
+    padding: 22px 15px 15px;
+  }
+
+  .Contacts_title {
+    font-size: 28px;
+
+    letter-spacing: -0.8px;
+  }
+
+  .Contacts_subtitle {
+    font-size: 9px;
+  }
+
+  .Contacts_formsContainer {
+    gap: 12px;
+  }
+
+  .Contacts_card {
+    padding: 13px;
+  }
+
+  .Contacts_radioGroup {
+    grid-template-columns: 1fr;
+  }
+
+  .Contacts_radioCard {
+    min-height: 42px;
+  }
+
+  .Contacts_input {
+    height: 34px;
+
+    font-size: 11px;
+  }
+
+  .Contacts_select {
+    height: 36px;
+
+    font-size: 11px;
+  }
+
+  .Contacts_textarea {
+    height: 90px;
+
+    font-size: 11px;
+  }
+
+  .Contacts_reviewTextarea {
+    height: 120px;
+  }
+
+  .Contacts_label {
+    font-size: 10px;
+  }
+
+  .Contacts_radioTitle {
+    font-size: 10px;
+  }
+
+  .Contacts_radioDescription {
+    font-size: 8px;
+  }
+
+  .Contacts_submitButton {
+    height: 38px;
+
+    font-size: 10px;
+  }
+
+  .Contacts_features {
+    padding: 15px;
+
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+
+  .Contacts_feature,
+  .Contacts_feature:nth-child(odd) {
+    min-height: 60px;
+
+    padding: 10px 0;
+
+    border-right: none;
+    border-bottom: 1px solid #dddddd;
+  }
+
+  .Contacts_feature:last-child {
+    border-bottom: none;
+  }
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 360px) {
+
+  .Contacts_navigation {
+    gap: 13px;
+  }
+
+  .Contacts_navLink {
+    font-size: 8px;
+  }
+
+  .Contacts_title {
+    font-size: 26px;
+  }
+
+  .Contacts_card {
+    padding: 11px;
+  }
+
+  .Contacts_cardTitle {
+    font-size: 10px;
+  }
+
+  .Contacts_cardDescription {
+    font-size: 7px;
+  }
+
+  .Contacts_rating {
+    gap: 2px;
+  }
+
+  .Contacts_starButton {
+    font-size: 17px;
+  }
+}

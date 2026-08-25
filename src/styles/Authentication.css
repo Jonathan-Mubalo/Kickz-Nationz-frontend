@@ -1,0 +1,440 @@
+
+
+.login-main, .signup-main{
+  /* border: 2px solid rgb(68, 0, 255); */
+    display:flex;  
+    height: 100%;
+}
+
+ .login-main{
+  display:flex;
+}
+
+ .login-main, .signup-main{
+  height: 100vh;
+} 
+
+
+/* LEFT HAND SIDE OF MY PAGE */
+
+.signup-left{
+  width: 60%; 
+  display:flex;
+  flex-flow:column nowrap;
+  align-items: center;
+  position: relative;
+}
+
+.login-left{
+  width: 55%; 
+  display:flex;
+  flex-flow:column nowrap;
+  align-items: center;
+  position: relative;
+}
+
+.signup-left div, .login-left div{
+  margin: 15% auto 5%;
+  display: flex;
+}
+
+
+.signup-left h1, .login-left h1{
+font-size: 5rem;
+font-family: Arial, Helvetica, sans-serif;
+font-weight: 550;
+}
+
+
+/* RIGHT HAND SIDE OF MY PAGE */
+
+.signup-right{
+  width: 30%;
+  margin: auto;
+  border-radius: 15px;
+  display:flex;
+  flex-flow:column nowrap;
+  padding: 25px;
+  background-color: white;
+  box-shadow: 1.5px 1.5px 8px rgb(128, 128, 128, 0.55);
+}
+
+ .login-right{
+  width: 35%;
+  height: 70%;
+  margin: auto;
+  border-radius: 15px;
+  display:flex;
+  flex-flow:column nowrap;
+  padding: 25px;
+  padding-top: 55px;
+  background-color: white;
+  box-shadow: 1.5px 1.5px 8px rgb(128, 128, 128, 0.55);
+}
+
+
+
+/* INPUT GENERAL STYLING */
+
+input{
+  display: block;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  padding: 8px 5px;
+  width:100%;
+  margin: 2% 0% 4%;
+}
+
+input::placeholder{
+  color:rgb(0, 0, 0, 0.5)
+}
+
+/* STRICTLY PASSWORD SECTION */
+
+.passwordInput{
+display: flex;
+  width:100%;
+  position:relative;
+  margin: 2% 0% 4%;
+  overflow-y: hidden;
+}
+
+.passwordInput input{
+   width:100%; 
+  margin: 0%;
+}
+
+/* SVG STYLING */
+
+.password, .confirmPassword, .loginPassword{
+  z-index: 1;
+  background-color: black;
+  width: 25px;
+  height:25px;
+  position: absolute;
+  top:5px;
+  bottom:0px;
+  right:4px;
+  background-color: transparent;
+  border:none;
+  overflow-y: hidden;
+}
+
+.loginPassword{
+  z-index: 1;
+  background-color: black;
+  width: 25px;
+  height:25px;
+  position: absolute;
+  top:11px;
+  bottom:0px;
+  right:4px;
+  background-color: transparent;
+  border:none;
+  overflow-y: hidden;
+}
+
+button svg{
+  width: 100%;
+  height: 100%;
+}
+
+.password:hover, .confirmPassword:hover, .loginPassword:hover{
+  transition-duration: 0.4s;
+  transform: scale(1.15);
+  color: rgb(0, 0, 0, 0.8);
+}
+
+
+.signup-btn{
+  margin-bottom: 7px;
+  padding:10px 5px;
+  border-radius:5px;
+  width:100%;
+  background-color: black;
+  color: white;
+}
+
+.login-btn{
+  /* margin-bottom: 10px; */
+  padding:13px 5px;
+  border-radius:5px;
+  width:100%;
+  background-color: black;
+  color: white;
+}
+
+/* SPAN TAGS USED TO CHANGE PAGES BETWEEN LOGIN AND SIGN UP*/
+
+span{
+  font-weight:900;
+  letter-spacing: 1px;  
+  cursor:pointer;
+}
+
+span:hover{
+  transition-duration: 0.3s;
+color: rgb(0, 0, 0, 0.7);
+text-decoration: underline;
+}
+
+/* ERROR HANDLING P TAGS */
+
+form p{
+  font-size: 1.1rem;
+  color: red;
+}
+
+/* SIGNUP SLOGAN */
+
+#slogan{
+  font-size:0.85rem;
+  opacity:0.65;
+  color: black;
+  margin: 2% 0% 4%;
+cursor:default
+}
+
+/* LOGIN INPUTS STYLING  */
+
+.loginForm{
+  height:auto;
+  padding:0px;
+  /* overflow-y: hidden; */
+}
+
+#loginPassword{
+  height:48px;
+}
+
+#loginEmail{
+  height:48px;
+}
+
+
+/* MEDIA QUERRIES */
+
+@media screen and (max-width:950px) {
+
+.signup-right, .signup-right{
+  width:35%;
+}
+
+.signup-left, .login-left{
+  width:50%;
+}
+
+.signup-left h1, .login-left h1{
+font-size: 4rem;
+}
+
+}
+
+
+@media screen and (max-width:840px) {
+
+ .login-right{
+  width:40%;
+}
+
+  .footer{
+    display: none;
+    position: default;
+  }
+
+ .login-left{
+  width:50%;
+} 
+
+}
+
+@media screen and (max-width:820px) {
+
+  .signup-right, .login-right{
+  width:40%;
+}
+
+  .footer{
+    display: none;
+    position: default;
+  }
+
+.signup-left, .login-left{
+  width:50%;
+} 
+
+.signup-left h1, .login-left h1{
+font-size: 3.5rem;
+}
+
+}
+
+@media screen and (max-width:770px) {
+
+  .footer{
+    display: none !important;
+    position: default;
+  }
+
+  .signup-left div, .login-left div{
+  margin: 30% auto 8%;
+
+}
+
+.signup-left h1, .login-left h1{
+font-size: 5rem;
+}
+
+.signup-left div, .login-left div{
+  flex-flow:column wrap;
+}
+
+}
+
+@media screen and (max-width:740px) {
+
+  .login-right{
+  width:45%;
+}
+
+.login-left{
+  width:50%;
+} 
+
+}
+
+@media screen and (max-width:710px) {
+
+.signup-right{
+  width:45%;
+}
+
+.signup-left{
+  width:50%;
+} 
+
+}
+
+@media screen and (max-width:655px) {
+
+ .login-main{
+  flex-flow: column wrap;
+  height: auto;
+  overflow-y: scroll;
+}
+
+ .login-right{
+  flex-wrap: wrap;
+  width: 70%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  height: auto;
+}
+
+.login-btn{
+  margin-bottom: 30px;
+}
+
+.login-left{
+   flex-wrap: wrap;
+  width:100%;
+} 
+
+.login-left div{
+  margin: 3% auto 8%;
+  display: flex;
+}
+
+form{
+  overflow-y: hidden;
+  height: auto;
+}
+
+
+.login-left div{
+  flex-flow:row wrap;
+}
+
+}
+
+@media screen and (max-width:630px) {
+
+.signup-main{
+  flex-flow: column wrap;
+  height: auto;
+  overflow-y: scroll;
+}
+
+.signup-right{
+  flex-wrap: wrap;
+  width: 70%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  height: auto;
+}
+
+.signup-btn{
+  margin-bottom: 22px;
+}
+
+.signup-left{
+   flex-wrap: wrap;
+  width:100%;
+} 
+
+  .signup-left div{
+  margin: 3% auto 8%;
+  display: flex;
+}
+
+form{
+  overflow-y: hidden;
+  height: auto;
+}
+
+
+.signup-left div{
+  flex-flow:row wrap;
+}
+
+}
+
+@media screen and (max-width:540px) {
+
+  .signup-left div, .login-left div{
+  margin: 3% auto 8%;
+  display: block;
+}
+}
+
+@media screen and (max-width:450px) {
+
+.signup-main, .login-main{
+  flex-flow: column wrap;
+  height: auto;
+  overflow-y: scroll;
+}
+
+.signup-right, .login-right{
+  flex-wrap: wrap;
+  width: 90%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  height: auto;
+}
+
+.signup-left, .login-left{
+   flex-wrap: wrap;
+  width:100%;
+} 
+
+form{
+  overflow-y: hidden;
+  height: auto;
+}
+
+.span{
+  font-size: 0.9rem;
+}
+
+}

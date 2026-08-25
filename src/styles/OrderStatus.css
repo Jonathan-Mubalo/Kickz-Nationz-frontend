@@ -1,0 +1,565 @@
+/* =========================================
+   ORDER TRACKING PAGE
+   All classes are prefixed with
+   orderTracking_
+========================================= */
+
+.orderTracking_page {
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.orderTracking_main {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 14px 25px 15px;
+}
+
+.orderTracking_headingSection {
+  margin-bottom: 13px;
+}
+
+.orderTracking_title {
+  margin: 0 0 5px;
+  font-size: 37px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -1.4px;
+}
+
+.orderTracking_subtitle {
+  margin: 0;
+  color: #666666;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+/* =========================================
+   ORDER CARD
+========================================= */
+
+.orderTracking_orderCard {
+  width: 100%;
+  border: 1px solid #d4d4d4;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+/* =========================================
+   ORDER SUMMARY
+========================================= */
+
+.orderTracking_orderSummary {
+  width: 100%;
+  min-height: 75px;
+  padding: 18px 22px;
+  display: grid;
+  grid-template-columns: 1.1fr 1.1fr 1.1fr 0.7fr;
+  gap: 20px;
+  border-bottom: 1px solid #dddddd;
+}
+
+.orderTracking_summaryItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.orderTracking_summaryLabel {
+  color: #666666;
+  font-size: 9px;
+}
+
+.orderTracking_summaryValue {
+  color: #111111;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.orderTracking_statusItem {
+  align-items: flex-start;
+}
+
+.orderTracking_statusBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 9px;
+  border-radius: 4px;
+  background: #e7f2ff;
+  color: #2471c8;
+  font-size: 9px;
+  font-weight: 500;
+}
+
+/* =========================================
+   DETAILS
+========================================= */
+
+.orderTracking_details {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  padding: 20px 22px 18px;
+}
+
+.orderTracking_deliverySection {
+  padding-right: 20px;
+  border-right: 1px solid #dddddd;
+}
+
+.orderTracking_itemsSection {
+  padding-left: 20px;
+}
+
+.orderTracking_sectionTitle {
+  margin: 0 0 13px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* =========================================
+   DELIVERY DETAILS
+========================================= */
+
+.orderTracking_deliveryItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-bottom: 17px;
+}
+
+.orderTracking_deliveryItem:last-child {
+  margin-bottom: 0;
+}
+
+.orderTracking_deliveryIcon {
+  width: 14px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: #343a40;
+  font-size: 15px;
+  line-height: 1;
+  text-align: center;
+}
+
+.orderTracking_deliveryContent {
+  min-width: 0;
+}
+
+.orderTracking_deliveryTitle {
+  margin: 0 0 4px;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.orderTracking_deliveryText {
+  margin: 0;
+  color: #777777;
+  font-size: 8px;
+  line-height: 1.55;
+}
+
+/* =========================================
+   PRODUCTS
+========================================= */
+
+.orderTracking_product {
+  min-height: 59px;
+  padding: 0 0 10px;
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr) 47px 45px;
+  align-items: center;
+  column-gap: 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.orderTracking_product:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.orderTracking_productImage {
+  width: 72px;
+  height: 47px;
+  border-radius: 2px;
+  background: #f1f2f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.orderTracking_productPlaceholder {
+  color: #b2b4b7;
+  font-size: 9px;
+  font-weight: 600;
+  transform: rotate(-5deg);
+}
+
+.orderTracking_nikeImage {
+  background: linear-gradient(
+    145deg,
+    #f3f3f3 0%,
+    #e7e8eb 55%,
+    #d9dade 100%
+  );
+}
+
+.orderTracking_adidasImage {
+  background: linear-gradient(
+    145deg,
+    #f5f5f5 0%,
+    #e9e9e9 55%,
+    #dddddd 100%
+  );
+}
+
+.orderTracking_productInfo {
+  min-width: 0;
+}
+
+.orderTracking_productName {
+  margin: 0 0 4px;
+  font-size: 9px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.orderTracking_productDetails {
+  margin: 0 0 4px;
+  color: #777777;
+  font-size: 8px;
+  white-space: nowrap;
+}
+
+.orderTracking_separator {
+  padding: 0 4px;
+}
+
+.orderTracking_productPrice {
+  margin: 0;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.orderTracking_productQuantity {
+  color: #555555;
+  font-size: 8px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.orderTracking_productTotal {
+  font-size: 9px;
+  font-weight: 600;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* =========================================
+   BACK TO SHOPPING
+========================================= */
+
+.orderTracking_backButton {
+  width: 100%;
+  height: 30px;
+  margin-top: 10px;
+  border: 1px solid #999999;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #111111;
+  font-size: 9px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.orderTracking_backButton:hover {
+  background: #111111;
+  color: #ffffff;
+  border-color: #111111;
+}
+
+.orderTracking_backArrow {
+  margin-right: 7px;
+  font-size: 12px;
+}
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.orderTracking_features {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 12px 25px 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.orderTracking_feature {
+  min-height: 51px;
+  padding: 4px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-right: 1px solid #dddddd;
+}
+
+.orderTracking_feature:first-child {
+  padding-left: 0;
+}
+
+.orderTracking_feature:last-child {
+  border-right: none;
+}
+
+.orderTracking_featureIcon {
+  width: 25px;
+  flex-shrink: 0;
+  color: #26323d;
+  font-size: 23px;
+  line-height: 1;
+  text-align: center;
+}
+
+.orderTracking_featureContent {
+  min-width: 0;
+}
+
+.orderTracking_featureTitle {
+  margin: 0 0 4px;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.orderTracking_featureText {
+  margin: 0;
+  color: #777777;
+  font-size: 7px;
+  line-height: 1.4;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+
+  .orderTracking_header {
+    min-height: auto;
+    padding: 14px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .orderTracking_nav {
+    width: 100%;
+    height: auto;
+    justify-content: flex-start;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+  }
+
+  .orderTracking_navLink {
+    height: 30px;
+    font-size: 11px;
+  }
+
+  .orderTracking_activeLink::after {
+    bottom: -2px;
+  }
+
+  .orderTracking_main {
+    padding: 25px 20px 15px;
+  }
+
+  .orderTracking_title {
+    font-size: 34px;
+  }
+
+  .orderTracking_orderSummary {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 18px;
+  }
+
+  .orderTracking_details {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .orderTracking_deliverySection {
+    padding-right: 0;
+    padding-bottom: 20px;
+    border-right: none;
+    border-bottom: 1px solid #dddddd;
+  }
+
+  .orderTracking_itemsSection {
+    padding-left: 0;
+  }
+
+  .orderTracking_features {
+    padding: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 15px;
+  }
+
+  .orderTracking_feature {
+    border-right: none;
+    padding: 8px 10px;
+  }
+
+  .orderTracking_feature:nth-child(odd) {
+    border-right: 1px solid #dddddd;
+  }
+
+  .orderTracking_feature:first-child {
+    padding-left: 10px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 520px) {
+
+  .orderTracking_header {
+    padding: 15px;
+  }
+
+  .orderTracking_logo {
+    font-size: 20px;
+  }
+
+  .orderTracking_nav {
+    gap: 16px;
+  }
+
+  .orderTracking_navLink {
+    font-size: 10px;
+  }
+
+  .orderTracking_main {
+    padding: 22px 15px 15px;
+  }
+
+  .orderTracking_title {
+    font-size: 30px;
+    letter-spacing: -1px;
+  }
+
+  .orderTracking_subtitle {
+    font-size: 10px;
+  }
+
+  .orderTracking_orderSummary {
+    padding: 16px;
+    grid-template-columns: 1fr 1fr;
+    gap: 17px 10px;
+  }
+
+  .orderTracking_details {
+    padding: 18px 16px;
+  }
+
+  .orderTracking_deliverySection {
+    padding-bottom: 18px;
+  }
+
+  .orderTracking_product {
+    grid-template-columns: 65px minmax(0, 1fr);
+    grid-template-areas:
+      "image info"
+      "image quantity"
+      "image total";
+    row-gap: 4px;
+    column-gap: 10px;
+    padding-bottom: 14px;
+  }
+
+  .orderTracking_productImage {
+    width: 65px;
+    height: 45px;
+    grid-area: image;
+    align-self: start;
+  }
+
+  .orderTracking_productInfo {
+    grid-area: info;
+  }
+
+  .orderTracking_productQuantity {
+    grid-area: quantity;
+    text-align: left;
+  }
+
+  .orderTracking_productTotal {
+    grid-area: total;
+    text-align: left;
+  }
+
+  .orderTracking_productDetails {
+    white-space: normal;
+  }
+
+  .orderTracking_features {
+    padding: 15px;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .orderTracking_feature,
+  .orderTracking_feature:nth-child(odd) {
+    min-height: 60px;
+    padding: 10px 0;
+    border-right: none;
+    border-bottom: 1px solid #dddddd;
+  }
+
+  .orderTracking_feature:last-child {
+    border-bottom: none;
+  }
+}
+
+/* =========================================
+   VERY SMALL SCREENS
+========================================= */
+
+@media (max-width: 360px) {
+
+  .orderTracking_nav {
+    gap: 13px;
+  }
+
+  .orderTracking_navLink {
+    font-size: 9px;
+  }
+
+  .orderTracking_title {
+    font-size: 27px;
+  }
+
+  .orderTracking_orderSummary {
+    grid-template-columns: 1fr;
+  }
+
+  .orderTracking_statusItem {
+    align-items: flex-start;
+  }
+}

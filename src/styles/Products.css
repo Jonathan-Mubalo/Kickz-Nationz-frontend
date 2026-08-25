@@ -1,0 +1,110 @@
+/* The main section that holds all of the shoes */
+.products_main{
+    /* border: 2px solid rgb(0, 60, 255); */
+    width: 100%;
+    height:100%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    margin-bottom: 120px;
+}
+
+/* THE TITLE AND SUBTITLE FOR THE GIVEN PAGE */
+.products_h1{
+    margin-top: 100px;
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.products_p{
+    text-align: center;
+}
+
+/* CONTAINER HOLDING EACH SHOE */
+.productsSection{
+    height: 350px;
+    width:80%;
+    /* border: 2px solid green; */
+    border: 0.1px solid rgba(0, 0, 0, 0.151);
+    margin: 10%;
+    border-radius: 15px;
+    background-color: white;
+}
+
+/* DIV CONTAINER HOLDING EACH IMAGE */
+.product_image_div{
+    height:200px;
+    width:90%;
+    margin: 3% auto;
+    /* border: 2px solid rgb(0, 128, 107); */
+    border-radius: 15px;
+}
+
+.productImg{
+    width:100%;
+    height:100%;
+    border-radius: 14px;
+}
+
+/* THE SHOE NAME AND SHOE PRICE */
+.products_h2{
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom:4px;
+    margin-left:5%;
+}
+
+/* SHOE PRICE'S STYLING */
+.products_h2 span{
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.productsBtn{
+    width:90%;
+    padding: 13px 0px;
+    margin:auto 5%;
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+}
+
+/* MEDIA QUERRIES */
+@media screen and (max-width:750px) {
+   
+    .products_main{ 
+    width: 100%;
+    height:100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    }
+
+}
+
+@media screen and (max-width:750px) {
+   
+.products_main{
+    margin-bottom: 0px;
+}
+
+}
+
+
+@media screen and (max-width:490px) {
+   
+
+    .products_h1{ 
+         margin-top: 200px;
+
+    }
+    .products_main{ 
+    width: 90%;
+    margin: auto;
+    grid-template-columns: repeat(1,1fr);
+    }
+
+    .productsSection{
+    height: 340px;
+}
+
+}
