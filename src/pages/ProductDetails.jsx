@@ -63,7 +63,7 @@ const ProductDetails = () => {
 
       // Used to make sure that a user selects their specific shoe size because every other feild is prefilled
       if (!shoeSize) {
-        alert("Please select the shoe size that you would like to purchase.")
+        return alert("Please select the shoe size that you would like to purchase.")
       }
 
       const { accessTokenUserId, accessToken } = JSON.parse(sessionStorage.getItem("KicksNationz"));
@@ -92,6 +92,48 @@ const ProductDetails = () => {
     catch (error) {
       console.error("There was an error trying to post yourshoe inside your shopping cart: ", error)
     }
+  }
+
+  // CRUD FUNCTION USED TO ADD A SHOE PRODUCT TO THE WISHLIST
+
+  const addToWishlist = async() =>{
+
+try{
+
+      const { accessTokenUserId, accessToken } = JSON.parse(sessionStorage.getItem("KicksNationz"));
+  const response = await fetch('//localhost:3000/wishlist',{
+    method: "POST",
+    headers: {"Content-Type": "application/json",
+      authorization: `Basic ${accessToken}`
+    }, body: JSON.stringify({
+          productId: currentShoe[0]["_id"],
+          quantity: shoeQuantity,
+          encodedEmail: accessTokenUserId,
+          productName: currentShoe[0].productName,
+          productType: currentShoe[0].shoeType,
+          productColor: shoeColor,
+          productSize: shoeSize,
+          currency: currentShoe[0].currency,
+          price: currentShoe[0].price,
+          imageUrls: currentShoe[0].imageUrls,
+          stockQuantity: currentShoe[0].stockQuantity
+        })
+      });
+
+  const data = await response.json();
+
+  if( response.status !== 200 ){
+    alert( data.message );
+  }
+  else{
+    // Logging the id of the updated/ created wishlist
+console.log(data);
+  }
+
+}
+catch (error){
+  console.error("Failed to add a shoe to the wishlist: ",error);
+}
   }
 
   return (
@@ -166,7 +208,7 @@ const ProductDetails = () => {
 
                 <section className="productDetails_addToBtns">
                   <button className="productDetails_AddToCartBtn" onClick={addToCart}>Add to Cart</button>
-                  <button className="productDetails_AddToWishlistBtn">Add to Wishlist</button>
+                  <button className="productDetails_AddToWishlistBtn" onClick={ addToWishlist }>Add to Wishlist</button>
                 </section>
 
               </section>
