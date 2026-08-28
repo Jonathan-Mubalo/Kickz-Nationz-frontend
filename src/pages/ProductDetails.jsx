@@ -57,6 +57,7 @@ const ProductDetails = () => {
 
   // ENDPOINT FUNCTION USED TO ADD A SHOE TO A CART
   console.log("Currnt shoe: ", currentShoe)
+  
   const addToCart = async () => {
 
     try {
@@ -67,7 +68,7 @@ const ProductDetails = () => {
       }
 
       const { accessTokenUserId, accessToken } = JSON.parse(sessionStorage.getItem("KicksNationz"));
-      const response = await fetch("//localhost:3000/selectedproduct", {
+      const response = await fetch(`//localhost:3000/selectedproduct/${accessTokenUserId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -76,7 +77,6 @@ const ProductDetails = () => {
         body: JSON.stringify({
           productId: currentShoe[0]["_id"],
           quantity: shoeQuantity,
-          encodedEmail: accessTokenUserId,
           productName: currentShoe[0].productName,
           productType: currentShoe[0].shoeType,
           productColor: shoeColor,
@@ -84,7 +84,8 @@ const ProductDetails = () => {
           currency: currentShoe[0].currency,
           price: currentShoe[0].price,
           imageUrls: currentShoe[0].imageUrls,
-          stockQuantity: currentShoe[0].stockQuantity
+          // encodedEmail: accessTokenUserId, 
+          // stockQuantity: currentShoe[0].stockQuantity, We will just use the product id to get the current stock quantity
         })
       });
 
@@ -111,7 +112,7 @@ try{
           encodedEmail: accessTokenUserId,
           productName: currentShoe[0].productName,
           productType: currentShoe[0].shoeType,
-          productColor: shoeColor,
+          productColor: currentShoe[0].productColor,
           productSize: shoeSize,
           currency: currentShoe[0].currency,
           price: currentShoe[0].price,
