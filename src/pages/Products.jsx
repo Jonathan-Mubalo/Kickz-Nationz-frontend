@@ -1,4 +1,4 @@
-import React, {useRef, useContext } from 'react';
+import React, { useRef, useContext } from 'react';
 import "../styles/Products.css"
 import  { ProductContext } from '../context/ProductProvider.jsx'
 import { useNavigate } from 'react-router-dom';

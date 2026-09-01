@@ -84,8 +84,9 @@ const ProductDetails = () => {
           currency: currentShoe[0].currency,
           price: currentShoe[0].price,
           imageUrls: currentShoe[0].imageUrls,
+          // STOCK QUANTITY MAKES SURE THAT SOMEONE DOES NOT ORDER ABOVE THE AMOUNT OF SHOES THAT WE HAVE IN STOCK
+          stockQuantity: currentShoe[0].stockQuantity
           // encodedEmail: accessTokenUserId, 
-          // stockQuantity: currentShoe[0].stockQuantity, We will just use the product id to get the current stock quantity
         })
       });
 

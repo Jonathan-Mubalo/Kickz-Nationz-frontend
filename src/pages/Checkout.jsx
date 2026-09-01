@@ -1,57 +1,141 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../styles/Checkout.css";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const Checkout = () => {
+
+  // USED TO NAVIGATE BETWEEN DIFFERENT PAGES
+  const navigate = useNavigate();
+
+  // USED TO STORE THE INFORMATION FROM THE CARTS COLLECTION IN THE STATE VARIABLE
+  const [myOrderSummary, setMyOrderSummary] = useState();
+
+  // STATE VARIABLE USED TO STORE THE TOTAL PRICE OF THE CART THAT IS BEING PAID FOR
+  const [ paymentTotal, setPaymentTotal ] = useState(0);
+
+  // USEREF USED TO TRACK THE SELECTED DELIVERY METHOD
+const deliveryMethod = useRef();
+
+// USEREF THAT WILL STORE THE VALUE OF THE NAME 
+const fullName = useRef();
+
+  // USEREF SED TO TRACK THE SELECTED DELIVERY METHOD
+const emailAddress = useRef();
+
+  // USEREF SED TO TRACK THE SELECTED DELIVERY METHOD
+const phoneNumber = useRef();
+
+  // USEREF SED TO TRACK THE SELECTED DELIVERY METHOD
+const shippingAddress = useRef();
+
+  // USEREF SED TO TRACK THE SELECTED DELIVERY METHOD
+const postalCode = useRef();
+
+  // USEREF SED TO TRACK THE SELECTED DELIVERY METHOD
+const city = useRef();
+
+// USEREF USED TO TRACK THE SELECTED PROVINCE
+const province = useRef();
+
+// USEREF USED TO TRACK THE PAYMENT METHOD
+const paymentMethod = useRef();
+
+  // USEREF SED TO TRACK THE SELECTED DELIVERY METHOD
+const cardNumber = useRef();
+
+  // USEREF SED TO TRACK THE SELECTED DELIVERY METHOD
+const expireryDate = useRef();
+
+  // USEREF SED TO TRACK THE SELECTED DELIVERY METHOD
+const CVV = useRef();
+
+  // USEEFFECT USE TO COLLECT ALL OF THE SHOES FROM THE CARTS COLLECTION
+  useEffect(() => {
+
+    const myCheckoutInfo = async () => {
+
+      try {
+
+        const { accessTokenUserId, accessToken } = JSON.parse(sessionStorage.getItem("KicksNationz"));
+        const response = await fetch(`//localhost:3000/mycart/${accessTokenUserId}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Basic ${accessToken}`
+          }
+        });
+
+        const data = await response.json();
+
+        console.log("Cart collected from the database", data.message);
+
+        setMyOrderSummary( ()=>{ return data.message } );
+
+        const currentTotal =  data.message.reduce( (total,item)=>{
+          return ( total + (item.quantity * item.price) )
+        },0 )
+        setPaymentTotal( ()=>{
+           return ( currentTotal );
+        })
+
+      } catch (error) {
+        console.error("MyCartDisplay function: ", error);
+      }
+    }
+    
+    myCheckoutInfo();
+
+  }, [])
+
+  const submitCheckoutPayment = async () =>{
+
+    try{
+
+      console.log("Function has started")
+
+  const { accessTokenUserId, accessToken } = JSON.parse(sessionStorage.getItem("KicksNationz"));
+        const response = await fetch(`//localhost:3000/postcartinorder/${accessTokenUserId}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Basic ${accessToken}`
+          },
+          body:JSON.stringify({
+deliveryMethod: deliveryMethod.current.value,
+fullName: fullName.current.value,
+emailAddress: emailAddress.current.value,
+phoneNumber: phoneNumber.current.value,
+shippingAddress: shippingAddress.current.value,
+postalCode: postalCode.current.value,
+city: city.current.value,
+province: province.current.value,
+// paymentMethod: paymentMethod.current.value,
+cardNumber: cardNumber.current.value,
+expireryDate: expireryDate.current.value,
+  CVV: CVV.current.value
+          })
+        });
+
+        const data = await response.json();
+
+        console.log("Database info: ", data.message)
+
+      console.log("Function has ended")
+        
+
+    }
+catch (error){
+        console.error("submitCheckoutPayment function: ", error);
+}
+  }
+
+
   return (
     <div className="checkout_page">
 
-      {/* =====================================
-          HEADER / NAVIGATION
-      ====================================== */}
-      <header className="checkout_header">
+      <Navbar />
 
-        <div className="checkout_logo">
-          Kicks Nationz
-        </div>
-
-        <nav className="checkout_navigation">
-
-          <a href="/products" className="checkout_nav_link">
-            Products
-          </a>
-
-          <a href="/wishlist" className="checkout_nav_link">
-            Wishlist
-          </a>
-
-          <a href="/cart" className="checkout_nav_link">
-            Cart
-            <span className="checkout_cart_badge">2</span>
-          </a>
-
-          <a
-            href="/checkout"
-            className="checkout_nav_link checkout_nav_active"
-          >
-            Checkout
-          </a>
-
-          <a href="/order-status" className="checkout_nav_link">
-            Order Status
-          </a>
-
-          <a href="/contact" className="checkout_nav_link">
-            Contact Us
-          </a>
-
-        </nav>
-
-      </header>
-
-
-      {/* =====================================
-          PAGE CONTENT
-      ====================================== */}
       <main className="checkout_main">
 
         <div className="checkout_title_section">
@@ -69,9 +153,6 @@ const Checkout = () => {
 
         <div className="checkout_content">
 
-          {/* =================================
-              LEFT SIDE - CHECKOUT FORM
-          ================================== */}
           <section className="checkout_form">
 
             {/* Contact Information */}
@@ -90,6 +171,7 @@ const Checkout = () => {
                   </label>
 
                   <input
+                  ref={emailAddress}
                     type="email"
                     className="checkout_input"
                     placeholder="example@email.com"
@@ -104,6 +186,7 @@ const Checkout = () => {
                   </label>
 
                   <input
+                  ref={phoneNumber}
                     type="tel"
                     className="checkout_input"
                     placeholder="071 234 5678"
@@ -132,6 +215,7 @@ const Checkout = () => {
                 </label>
 
                 <input
+                ref={fullName}
                   type="text"
                   className="checkout_input"
                   placeholder="John Doe"
@@ -150,6 +234,7 @@ const Checkout = () => {
                 <div className="checkout_address_row">
 
                   <input
+                ref={shippingAddress}
                     type="text"
                     className="checkout_input"
                     placeholder="123 Main Street, Green Point"
@@ -162,6 +247,7 @@ const Checkout = () => {
                     </label>
 
                     <input
+                ref={postalCode}
                       type="text"
                       className="checkout_input"
                       placeholder="8001"
@@ -184,6 +270,7 @@ const Checkout = () => {
                   </label>
 
                   <input
+                ref={city}
                     type="text"
                     className="checkout_input"
                     placeholder="Cape Town"
@@ -198,6 +285,7 @@ const Checkout = () => {
                   </label>
 
                   <input
+                ref={province}
                     type="text"
                     className="checkout_input"
                     placeholder="Western Cape"
@@ -205,45 +293,11 @@ const Checkout = () => {
 
                 </div>
 
-                <div className="checkout_field">
-
-                  <label className="checkout_label">
-                    Postal Code
-                  </label>
-
-                  <input
-                    type="text"
-                    className="checkout_input"
-                    placeholder="8001"
-                  />
-
-                </div>
-
-              </div>
-
-
-              {/* Country */}
-              <div className="checkout_country_field">
-
-                <label className="checkout_label">
-                  Country
-                </label>
-
-                <select className="checkout_select">
-                  <option>South Africa</option>
-                  <option>Namibia</option>
-                  <option>Botswana</option>
-                  <option>Zimbabwe</option>
-                </select>
 
               </div>
 
             </div>
 
-
-            {/* =================================
-                DELIVERY + PAYMENT
-            ================================== */}
             <div className="checkout_bottom_sections">
 
               {/* Delivery */}
@@ -255,17 +309,17 @@ const Checkout = () => {
 
                 <div className="checkout_field">
 
-                  <label className="checkout_label">
+                  <label className="checkout_label" onChange={ ()=>{ return displayShoppingprice } }>
                     Select Delivery Method
                   </label>
 
-                  <select className="checkout_select">
+                  <select className="checkout_select" ref={deliveryMethod}>
 
-                    <option>
+                    <option value="150">
                       Standard Delivery (2-4 business days)
                     </option>
 
-                    <option>
+                    <option value="100">
                       Express Delivery (1-2 business days)
                     </option>
 
@@ -315,19 +369,6 @@ const Checkout = () => {
                   </label>
 
 
-                  <label className="checkout_radio_option">
-
-                    <input
-                      type="radio"
-                      name="payment"
-                    />
-
-                    <span>
-                      Apple Pay
-                    </span>
-
-                  </label>
-
                 </div>
 
 
@@ -339,6 +380,7 @@ const Checkout = () => {
                   </label>
 
                   <input
+                  ref={cardNumber}
                     type="text"
                     className="checkout_input"
                     placeholder="1234 5678 9012 3456"
@@ -357,6 +399,7 @@ const Checkout = () => {
                     </label>
 
                     <input
+                    ref={expireryDate}
                       type="text"
                       className="checkout_input"
                       placeholder="MM / YY"
@@ -371,6 +414,7 @@ const Checkout = () => {
                     </label>
 
                     <input
+                    ref={CVV}
                       type="text"
                       className="checkout_input"
                       placeholder="123"
@@ -386,10 +430,6 @@ const Checkout = () => {
 
           </section>
 
-
-          {/* =================================
-              RIGHT SIDE - ORDER SUMMARY
-          ================================== */}
           <aside className="checkout_summary">
 
             <h2 className="checkout_summary_title">
@@ -398,7 +438,39 @@ const Checkout = () => {
 
 
             {/* Product */}
-            <div className="checkout_product">
+            { myOrderSummary && myOrderSummary.map( (item,index)=>{
+                return(
+                      <div className="checkout_product" key={index} >
+
+              <h3 className="checkout_product_name">
+              {item.productName}
+              </h3>
+
+              <p className="checkout_product_info">
+                Color: {item.productColor}
+              </p>
+
+              <p className="checkout_product_info">
+                Size: {item.productSize}
+              </p>
+
+              <div className="checkout_product_quantity">
+
+                <span>
+                  Quantity:  {item.quantity}
+                </span>
+
+                <strong>
+                  R{(item.quantity *item.price)}
+                </strong>
+
+              </div>
+
+            </div>
+                )
+              })
+            }
+            {/* <div className="checkout_product">
 
               <h3 className="checkout_product_name">
                 Nike Air Force 1
@@ -424,7 +496,7 @@ const Checkout = () => {
 
               </div>
 
-            </div>
+            </div> */}
 
 
             {/* Price Summary */}
@@ -437,7 +509,7 @@ const Checkout = () => {
                 </span>
 
                 <strong>
-                  R1300
+                  R{paymentTotal}
                 </strong>
 
               </div>
@@ -466,7 +538,7 @@ const Checkout = () => {
               </span>
 
               <strong>
-                R1450
+                R{(paymentTotal + 150)}
               </strong>
 
             </div>
@@ -497,21 +569,22 @@ const Checkout = () => {
 
 
             {/* Place Order */}
-            <button className="checkout_place_order">
+            <button className="checkout_place_order" onClick={ ()=>{ return submitCheckoutPayment() } } >
               <span className="checkout_lock">
-                ♙
               </span>
 
               Place Order
+            </button>
+
+            <button className="checkout_place_order" onClick={() => { return navigate("/Cart") }}>
+              Back to cart
             </button>
 
 
             {/* Secure Checkout */}
             <div className="checkout_secure">
 
-              <div className="checkout_secure_icon">
-                ♢
-              </div>
+             
 
               <div className="checkout_secure_content">
 

@@ -173,8 +173,9 @@ const Wishlist = () => {
                         currency: filteredShoe[0].currency,
                         price: filteredShoe[0].price,
                         imageUrls: filteredShoe[0].imageUrls,
+                        //  We will just use the product id to get the current stock quantity
+                        stockQuantity: filteredShoe[0].stockQuantity
                         // encodedEmail: filteredShoe[0].encodedEmail, 
-                        // stockQuantity: filteredShoe[0].stockQuantity, We will just use the product id to get the current stock quantity
                     },
                 })
             });

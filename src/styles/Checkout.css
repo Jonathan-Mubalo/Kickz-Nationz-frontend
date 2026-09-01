@@ -1,7 +1,4 @@
-/* =========================================
-   CHECKOUT PAGE
-   All classes start with checkout_
-========================================= */
+
 
 .checkout_page {
   width: 100%;
@@ -19,32 +16,6 @@
     sans-serif;
 
   box-sizing: border-box;
-}
-
-.checkout_page *,
-.checkout_page *::before,
-.checkout_page *::after {
-  box-sizing: border-box;
-}
-
-
-/* =========================================
-   HEADER
-========================================= */
-
-.checkout_header {
-  width: 100%;
-  min-height: 60px;
-
-  padding: 0 32px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  border-bottom: 1px solid #dddddd;
-
-  background: #ffffff;
 }
 
 .checkout_logo {
@@ -113,15 +84,13 @@
 }
 
 
-/* =========================================
-   MAIN
-========================================= */
+   /* MAIN */
 
 .checkout_main {
   width: 100%;
   max-width: 850px;
 
-  margin: 0 auto;
+  margin: 85px auto 0;
 
   padding: 18px 20px 22px;
 }
@@ -148,9 +117,7 @@
 }
 
 
-/* =========================================
-   MAIN CONTENT
-========================================= */
+   /* MAIN CONTENT */
 
 .checkout_content {
   width: 100%;
@@ -167,9 +134,7 @@
 }
 
 
-/* =========================================
-   CHECKOUT FORM
-========================================= */
+   /* CHECKOUT FORM */
 
 .checkout_form {
   width: 100%;
@@ -199,9 +164,7 @@
 }
 
 
-/* =========================================
-   FORM FIELDS
-========================================= */
+   /* FORM FIELDS */
 
 .checkout_field {
   min-width: 0;
@@ -245,9 +208,7 @@
 }
 
 
-/* =========================================
-   TWO COLUMN FORM
-========================================= */
+   /* TWO COLUMN FORM */
 
 .checkout_two_columns {
   display: grid;
@@ -258,9 +219,7 @@
 }
 
 
-/* =========================================
-   FULL WIDTH
-========================================= */
+   /* FULL WIDTH */
 
 .checkout_full_width {
   width: 100%;
@@ -269,9 +228,7 @@
 }
 
 
-/* =========================================
-   ADDRESS
-========================================= */
+   /* ADDRESS */
 
 .checkout_address_field {
   width: 100%;
@@ -294,9 +251,7 @@
 }
 
 
-/* =========================================
-   THREE COLUMNS
-========================================= */
+   /* THREE COLUMNS */
 
 .checkout_three_columns {
   display: grid;
