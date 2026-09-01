@@ -51,9 +51,6 @@ const Cart = () => {
           // CALLING THE FUNCTION USED TO UPDATE THE TOTAL PRICE
           calculateTotalPrice(data.message);
 
-          // STORING THE ARRAY OF SHOE OBJECTS IN THE STATE VARIABLE
-          setMyCartDisplay(() => { return data.message });
-
         };
       }
       catch (error) {
@@ -65,9 +62,7 @@ const Cart = () => {
 
   }, []);
 
-  const increaseShoeQuantity = async (itemIndex) => {
-
-    try {
+  const increaseShoeQuantity = (itemIndex) => {
 
       const currentCart = myCartDisplay;
 
@@ -81,31 +76,11 @@ const Cart = () => {
 
         // CALLING THE FUNCTION USED TO UPDATE THE TOTAL PRICE
         calculateTotalPrice(currentCart);
-
-        // UPDATING THE STATE VARIABLE TO HOLD THE UPDATED SHOES INFORMATION
-        setMyCartDisplay(() => { return [...currentCart] });
-
-        const { accessToken, accessTokenUserId } = JSON.parse(sessionStorage.getItem("KicksNationz"));
-        const response = await fetch(`//localhost:3000/editcart/${accessTokenUserId}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            authorization: `Basic ${accessToken}`
-          },
-          body: JSON.stringify({ shoppingCart: currentCart, totalPrice })
-        })
       }
-
-    }
-    catch (error) {
-      console.error("increaseShoeQuantity function: ", error);
-    }
-  }
+     }
 
 
-  const decreaseShoeQuantity = async (itemIndex) => {
-
-    try {
+  const decreaseShoeQuantity = (itemIndex) => {
 
       const currentCart = myCartDisplay;
 
@@ -118,42 +93,38 @@ const Cart = () => {
 
         // CALLING THE FUNCTION USED TO UPDATE THE TOTAL PRICE
         calculateTotalPrice(currentCart);
-
-        // UPDATING THE STATE VARIABLE TO HOLD THE UPDATED SHOES INFORMATION
-        setMyCartDisplay(() => { return [...currentCart] });
-
-
-        const { accessToken, accessTokenUserId } = JSON.parse(sessionStorage.getItem("KicksNationz"));
-        const response = await fetch(`//localhost:3000/editcart/${accessTokenUserId}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            authorization: `Basic ${accessToken}`
-          },
-          body: JSON.stringify({ shoppingCart: currentCart, totalPrice })
-        })
       }
-
-    }
-    catch (error) {
-      console.error("decreaseShoeQuantity function: ", error)
-    }
   }
 
 
-  const removeFromCart = async (itemIndex) => {
-
-    try {
+  const removeFromCart = (itemIndex) => {
 
       const currentCart = myCartDisplay;
-
+console.log("The current index being targetted",itemIndex)
       // REMOVING THE SHOE FROM THE CART BY USING ITS INDEX AS THE PARAMETER
       currentCart.splice(itemIndex, 1);
 
       // CALLING THE FUNCTION USED TO UPDATE THE TOTAL PRICE
       calculateTotalPrice(currentCart);
+  
+  }
 
-      // UPDATING THE STATE VARIABLE TO HOLD THE UPDATED SHOES INFORMATION
+
+
+  const calculateTotalPrice = async (currentCart = []) => {
+
+    try{
+    // MAPPING THROUGH THE CART THAT IS GOING TO BE SENT TO THE DATABASE 
+    // AND MULTIPLYING THE PRICES WITH THE QUANTITIES
+    //  IN ORDER TO MAKE SURE THAT TOTAL NMBER OF ITEMS IS ACCURATE 
+    const TotalAmount = currentCart.reduce((total, item) => {
+      return (total + (item.price * item.quantity))
+    }, 0);
+
+    // LETTING A STATE VARIABLE HOLD THE TOTAL PRICE
+    setTotalPrice(() => { return TotalAmount })
+
+          // UPDATING THE STATE VARIABLE TO HOLD THE UPDATED SHOES INFORMATION
       setMyCartDisplay(() => { return [...currentCart] });
 
 
@@ -164,26 +135,13 @@ const Cart = () => {
           "Content-Type": "application/json",
           authorization: `Basic ${accessToken}`
         },
-        body: JSON.stringify({ shoppingCart: currentCart, totalPrice })
+        body: JSON.stringify({ shoppingCart: currentCart, totalPrice: TotalAmount })
       })
 
-
-    } catch (error) {
-      console.error("removeFromCart function: ", error)
+    } 
+    catch (error){
+      console.error(error);
     }
-  }
-
-  const calculateTotalPrice = (currentCart= 0) => {
-
-    // MAPPING THROUGH THE CART THAT IS GOING TO BE SENT TO THE DATABASE 
-    // AND MULTIPLYING THE PRICES WITH THE QUANTITIES
-    //  IN ORDER TO MAKE SURE THAT TOTAL NMBER OF ITEMS IS ACCURATE 
-    const TotalAmount = currentCart.reduce((total, item) => {
-      return (total + (item.price * item.quantity))
-    }, 0);
-
-    // LETTING A STATE VARIABLE HOLD THE TOTAL PRICE
-    setTotalPrice(() => { return TotalAmount })
   }
 
 
@@ -238,7 +196,7 @@ const Cart = () => {
 
                     <h4 className="cart_price">R{(item.price * item.quantity)}</h4>
 
-                    <button className="cart_remove" id={index} onClick={removeFromCart} >×</button>
+                    <button className="cart_remove" id={index} onClick={()=>{ return removeFromCart(index)} } >×</button>
                   </div>
                 )
               })}

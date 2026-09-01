@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../styles/ContactUs.css";
 import Navbar from "../components/Navbar";
 import Footer2 from "../components/Footer2"
- 
+
 const ContactUs = () => {
   const [feedbackType, setFeedbackType] = useState("feedback");
   const [rating, setRating] = useState(0);
@@ -11,108 +11,174 @@ const ContactUs = () => {
   const [allShoes, setAllshoes] = useState([]);
 
   // STATE VARIABLE THAT IS USED TO STORE ALL OF THE INFORMATION ABOUT A FORM THAT HAS BEEN SUBMITTED
-const [ formDetails, setFormDetails ] = useState({
-name: "",
-email: "",
-orderNumber: "",
-message: ""
-})
+  const [formDetails, setFormDetails] = useState({
+    name: "",
+    email: "",
+    orderNumber: "",
+    message: ""
+  })
 
   // STATE VARIABLE THAT IS USED TO STORE ALL OF THE INFORMATION ABOUT A FORM THAT HAS BEEN SUBMITTED
-const [ shoeReview, setShoeReview ] = useState({
-name: "",
-rating: "",
-subject: "",
-message: ""
+  const [shoeReview, setShoeReview] = useState({
+    name: "",
+    rating: "",
+    subject: "",
+    message: ""
+  })
+
+  // This function will submit the form that the user has filled in and store it inside of the database
+  const submitForm = async (type) => {
+
+    try {
+
+      // Conditional statement checks to see if they are submitting a shoe review or if they are submitting an order review
+      if (type === "form") {
+        const { accessToken, accessTokenUserId } = JSON.parse(sessionStorage.getItem("KicksNationz"));
+        const response = await fetch(`//localhost:3000/postforms`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Basic ${accessToken}`
+          },
+          body: JSON.stringify({ ...formDetails })
+        })
+
+
+            const data = await response.json();
+
+      if (response.status !== 200) {
+        return alert(data.message);
+      }
+
+      else {
+        alert(data.message);
+
+        setShoeReview(()=>{
+           return ({
+    name: "",
+    rating: "",
+    subject: "",
+    message: ""
+  })
 })
 
-// This function will submit the form that the user has filled in and store it inside of the database
-const submitForm = async(type) =>{
 
-  try{
-
-    // Conditional statement checks to see if they are submitting a shoe review or if they are submitting an order review
-if(type === "form" ){
-   const { accessToken, accessTokenUserId } = JSON.parse(sessionStorage.getItem("KicksNationz"));
-        const response = await fetch(`//localhost:3000/postforms`,{
-          method: "POST",
-          headers: {"Content-Type": "application/json",
-            authorization: `Basic ${accessToken}`
-          },
-          body: JSON.stringify({...formDetails})
-        })
-      }
-        else if(type === "review" ){
-   const { accessToken, accessTokenUserId } = JSON.parse(sessionStorage.getItem("KicksNationz"));
-        const response = await fetch(`//localhost:3000/postforms`,{
-          method: "POST",
-          headers: {"Content-Type": "application/json",
-            authorization: `Basic ${accessToken}`
-          },
-          body: JSON.stringify({...shoeReview})
-        })
+  setFormDetails(()=>{
+           return ({
+    name: "",
+    email: "",
+    orderNumber: "",
+    message: ""
+  })
+})
       }
 
-          const data = await response.json();
 
-          if(response.status !== 200 ){
-            return alert( data.message);
-          }
+      }
 
-          else{
-            console.log("Message successfully stored in the database")
-}
 
-  } catch (error){
-    console.error(error);
+
+
+
+
+      if (type === "review") {
+        const { accessToken, accessTokenUserId } = JSON.parse(sessionStorage.getItem("KicksNationz"));
+        const response = await fetch(`//localhost:3000/postforms`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Basic ${accessToken}`
+          },
+          body: JSON.stringify({ ...shoeReview })
+        })
+
+
+            const data = await response.json();
+
+      if (response.status !== 200) {
+        return alert(data.message);
+      }
+
+      else {
+        alert(data.message);
+
+        setShoeReview(()=>{
+           return ({
+    name: "",
+    rating: "",
+    subject: "",
+    message: ""
+  })
+})
+
+
+  setFormDetails(()=>{
+           return ({
+    name: "",
+    email: "",
+    orderNumber: "",
+    message: ""
+  })
+})
+      }
+
+
+      }
+
+
+
+    } catch (error) {
+      console.error(error);
+    }
   }
-}
 
 
 
-   
-// THIS USEEFFECT WILL COLLECT ALL OF THE SHOE NAMES AND STORE IT IN TE DROPDOWN KNOWN AS SUBMIT FORM TO MAKE SURE THAT A USER IS ABLE TO SELECT A SHOE BASED ON THE ACTUAL SHOES INSIDE OF THE DATABASES
-  useEffect( ()=>{
 
-    const displayShoeDropdown = async ()=>{
-      try{
+  // THIS USEEFFECT WILL COLLECT ALL OF THE SHOE NAMES AND STORE IT IN TE DROPDOWN KNOWN AS SUBMIT FORM TO MAKE SURE THAT A USER IS ABLE TO SELECT A SHOE BASED ON THE ACTUAL SHOES INSIDE OF THE DATABASES
+  useEffect(() => {
+
+    const displayShoeDropdown = async () => {
+      try {
 
         const { accessToken, accessTokenUserId } = JSON.parse(sessionStorage.getItem("KicksNationz"));
-        const response = await fetch(`//localhost:3000/products`,{
+        const response = await fetch(`//localhost:3000/products`, {
           method: "GET",
-          headers: {"Content-Type": "application/json",
+          headers: {
+            "Content-Type": "application/json",
             authorization: `Basic ${accessToken}`
           }
         })
 
-          const data = await response.json();
+        const data = await response.json();
 
-if(response.status !== 200){
-  return alert("Unable to make a review on a shoe; please try again later or make a different review")
-}
-else{
-  console.log("SHOE DATA",data.message)
+        if (response.status !== 200) {
+          return alert("Unable to make a review on a shoe; please try again later or make a different review")
+        }
+        else {
+          console.log("SHOE DATA", data.message)
 
-const shoeNames = data.message.map( (item)=>{ return `${item.productName} ${item.shoeType}` }).sort();
- 
-setAllshoes( ()=>{ return [ ...shoeNames] })
+          const shoeNames = data.message.map((item) => { return `${item.productName} ${item.shoeType}` }).sort();
 
-console.log("Shoes from the database: ",shoeNames.length)
+          setAllshoes(() => { return [...shoeNames] })
 
-}
+          console.log("Shoes from the database: ", shoeNames.length)
+
+        }
       }
-      catch (error){
+      catch (error) {
         console.error(error)
       }
     }
 
-displayShoeDropdown();
+    displayShoeDropdown();
 
-  },[])
+  }, [])
 
   return (
-    <div className="Contacts_page">
 
+    <div className="Contacts_page">
+      <Navbar />
 
       {/* Main Content */}
       <main className="Contacts_main">
@@ -151,7 +217,7 @@ displayShoeDropdown();
 
             <form
               className="Contacts_form"
-              
+
             >
 
               {/* Feedback Type */}
@@ -165,11 +231,10 @@ displayShoeDropdown();
                 <div className="Contacts_radioGroup">
 
                   <label
-                    className={`Contacts_radioCard ${
-                      feedbackType === "feedback"
+                    className={`Contacts_radioCard ${feedbackType === "feedback"
                         ? "Contacts_radioSelected"
                         : ""
-                    }`}
+                      }`}
                   >
 
                     <input
@@ -198,11 +263,10 @@ displayShoeDropdown();
                   </label>
 
                   <label
-                    className={`Contacts_radioCard ${
-                      feedbackType === "product"
+                    className={`Contacts_radioCard ${feedbackType === "product"
                         ? "Contacts_radioSelected"
                         : ""
-                    }`}
+                      }`}
                   >
 
                     <input
@@ -247,8 +311,8 @@ displayShoeDropdown();
                   placeholder="Enter your name"
                   className="Contacts_input"
                   required
-                                    value = {formDetails.name}
-                  onChange={(event) => {setFormDetails( (prevForm)=>{ return { ...prevForm, name: event.target.value  } })}}
+                  value={formDetails.name}
+                  onChange={(event) => { setFormDetails((prevForm) => { return { ...prevForm, name: event.target.value } }) }}
                 />
 
               </div>
@@ -266,9 +330,9 @@ displayShoeDropdown();
                   placeholder="Enter your email"
                   className="Contacts_input"
                   required
-                                     value = {formDetails.email}
-                  onChange={(event) => {setFormDetails( (prevForm)=>{ return { ...prevForm, email: event.target.value  } })}}
-                           />
+                  value={formDetails.email}
+                  onChange={(event) => { setFormDetails((prevForm) => { return { ...prevForm, email: event.target.value } }) }}
+                />
 
               </div>
 
@@ -286,8 +350,8 @@ displayShoeDropdown();
                   type="text"
                   placeholder="Enter your order number"
                   className="Contacts_input"
-                  value = {formDetails.orderNumber}
-                  onChange={(event) => {setFormDetails( (prevForm)=>{ return { ...prevForm, orderNumber: event.target.value  } })}}
+                  value={formDetails.orderNumber}
+                  onChange={(event) => { setFormDetails((prevForm) => { return { ...prevForm, orderNumber: event.target.value } }) }}
                 />
 
               </div>
@@ -307,9 +371,9 @@ displayShoeDropdown();
                     maxLength="1000"
                     className="Contacts_textarea"
                     required
-                                       value = {formDetails.messsage}
-                  onChange={(event) => {setFormDetails( (prevForm)=>{ return { ...prevForm, message: event.target.value  } })}}
-                                 />
+                    value={formDetails.messsage}
+                    onChange={(event) => { setFormDetails((prevForm) => { return { ...prevForm, message: event.target.value } }) }}
+                  />
 
                   <span className="Contacts_characterCount">
                     0 / 1000
@@ -322,10 +386,10 @@ displayShoeDropdown();
               {/* Submit */}
               <button
                 type="button"
-                onClick={()=>{ return submitForm("form")} }
+                onClick={() => { return submitForm("form") }}
                 className="Contacts_submitButton"
               >
-               
+
 
                 Send Feedback
               </button>
@@ -339,7 +403,7 @@ displayShoeDropdown();
 
             <div className="Contacts_cardHeader">
 
- 
+
 
               <div>
                 <h2 className="Contacts_cardTitle">
@@ -369,16 +433,16 @@ displayShoeDropdown();
                   className="Contacts_select"
                   required
                   defaultValue=""
-                  onChange={(event) => {setShoeReview( (prevForm)=>{ return { ...prevForm, name: event.target.value  } })}}
-                               >
-                  {allShoes && allShoes.map( (shoeName,index)=>{ 
+                  onChange={(event) => { setShoeReview((prevForm) => { return { ...prevForm, name: event.target.value } }) }}
+                >
+                  {allShoes && allShoes.map((shoeName, index) => {
                     return (
                       <option key={index} value={shoeName} >
-                    {shoeName}
-                  </option>
+                        {shoeName}
+                      </option>
                     )
                   })}
-           
+
                 </select>
 
               </div>
@@ -393,14 +457,14 @@ displayShoeDropdown();
 
                 <div className="Contacts_rating">
 
-                  {[1, 2, 3, 4, 5].map((star,index) => (
+                  {[1, 2, 3, 4, 5].map((star, index) => (
                     <button
                       type="button"
                       key={star}
-                    
-                                           id = {star}
-                  onClick={(event) => {setShoeReview( (prevForm)=>{ return { ...prevForm, rating: event.target.id  } })}}
-               
+
+                      id={star}
+                      onClick={(event) => { setShoeReview((prevForm) => { return { ...prevForm, rating: event.target.id } }) }}
+
                     >
                       ★
                     </button>
@@ -422,7 +486,7 @@ displayShoeDropdown();
                   className="Contacts_select"
                   required
                   defaultValue=""
-                  onChange={(event) => {setShoeReview( (prevForm)=>{ return { ...prevForm, subject: event.target.value  } })}}
+                  onChange={(event) => { setShoeReview((prevForm) => { return { ...prevForm, subject: event.target.value } }) }}
                 >
 
                   <option value="" disabled>
@@ -468,8 +532,8 @@ displayShoeDropdown();
                     maxLength="1000"
                     className="Contacts_textarea Contacts_reviewTextarea"
                     required
-                                     value = {shoeReview.message}
-                  onChange={(event) => {setShoeReview( (prevForm)=>{ return { ...prevForm, message: event.target.value  } })}}
+                    value={shoeReview.message}
+                    onChange={(event) => { setShoeReview((prevForm) => { return { ...prevForm, message: event.target.value } }) }}
 
                   />
 
@@ -484,7 +548,7 @@ displayShoeDropdown();
               {/* Submit */}
               <button
                 type="button"
-                           onClick={()=>{ return submitForm("review")} }
+                onClick={() => { return submitForm("review") }}
                 className="Contacts_submitButton"
               >
 
@@ -504,94 +568,7 @@ displayShoeDropdown();
 
       </main>
 
-      {/* Features Section */}
-      <section className="Contacts_features">
-
-        <div className="Contacts_feature">
-
-          <div className="Contacts_featureIcon">
-            ♢
-          </div>
-
-          <div className="Contacts_featureContent">
-
-            <h3 className="Contacts_featureTitle">
-              100% Authentic
-            </h3>
-
-            <p className="Contacts_featureText">
-              Genuine products only
-            </p>
-
-          </div>
-
-        </div>
-
-        <div className="Contacts_feature">
-
-          <div className="Contacts_featureIcon">
-            ▱
-          </div>
-
-          <div className="Contacts_featureContent">
-
-            <h3 className="Contacts_featureTitle">
-              Fast Delivery
-            </h3>
-
-            <p className="Contacts_featureText">
-              Quick & reliable shipping
-            </p>
-
-          </div>
-
-        </div>
-
-        <div className="Contacts_feature">
-
-          <div className="Contacts_featureIcon">
-            ◉
-          </div>
-
-          <div className="Contacts_featureContent">
-
-            <h3 className="Contacts_featureTitle">
-              Easy Returns
-            </h3>
-
-            <p className="Contacts_featureText">
-              Hassle-free returns within
-              <br />
-              14 days.
-            </p>
-
-          </div>
-
-        </div>
-
-        <div className="Contacts_feature">
-
-          <div className="Contacts_featureIcon">
-            ♧
-          </div>
-
-          <div className="Contacts_featureContent">
-
-            <h3 className="Contacts_featureTitle">
-              24/7 Support
-            </h3>
-
-            <p className="Contacts_featureText">
-              We're here to help you
-              <br />
-              24/7.
-            </p>
-
-          </div>
-
-        </div>
-
-      </section>
+     
 
     </div>
   );

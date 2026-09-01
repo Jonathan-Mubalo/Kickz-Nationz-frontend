@@ -18,7 +18,7 @@ const Signup = () => {
     const loginSpan = useRef();
     const signupMain = useRef();
 
-    const { accessToken, setAccessToken, storedUserId, setStoredUserId, isLoggedIn, setIsLoggedIn } = useContext(LoginContext)
+    // const { accessToken, setAccessToken, storedUserId, setStoredUserId, isLoggedIn, setIsLoggedIn } = useContext(LoginContext)
 
     const navigate = useNavigate();
 

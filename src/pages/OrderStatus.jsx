@@ -102,7 +102,7 @@ const OrderStatus = () => {
                     </span>
 
                     <span className="orderTracking_summaryValue">
-                      R{item.totalPrice}
+                      R{item.totalPrice +parseInt(item.deliveryMethod)}
                     </span>
                   </div>
 
