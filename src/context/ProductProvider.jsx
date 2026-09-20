@@ -23,7 +23,7 @@ const ProductProvider = (props) => {
               const decodedToken = decode(accessToken);
               console.log("decodedToken: ",decodedToken)
 
-                const response = await fetch('//localhost:3000/products',{
+                const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/products`,{
                     method: 'GET',
                     headers: {
                         authorization: `Basic ${accessToken}`

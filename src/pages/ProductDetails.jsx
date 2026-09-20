@@ -68,7 +68,7 @@ const ProductDetails = () => {
       }
 
       const { accessTokenUserId, accessToken } = JSON.parse(sessionStorage.getItem("KicksNationz"));
-      const response = await fetch(`//localhost:3000/selectedproduct/${accessTokenUserId}`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/selectedproduct/${accessTokenUserId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -103,7 +103,7 @@ const ProductDetails = () => {
 try{
 
       const { accessTokenUserId, accessToken } = JSON.parse(sessionStorage.getItem("KicksNationz"));
-  const response = await fetch('//localhost:3000/wishlist',{
+  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/wishlist`,{
     method: "POST",
     headers: {"Content-Type": "application/json",
       authorization: `Basic ${accessToken}`

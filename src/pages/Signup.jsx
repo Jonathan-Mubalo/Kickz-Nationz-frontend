@@ -26,7 +26,7 @@ const Signup = () => {
 
     const handleSignup = async (event) => {
         event.preventDefault()
-        const signUp = fetch("http://localhost:3000/signup", {
+        const signUp = fetch(`${import.meta.env.VITE_BACKEND_URL}/signup`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

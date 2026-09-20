@@ -31,7 +31,7 @@ const Cart = () => {
         // console.log("access token user id: ", accessTokenUserId)
         // console.log("access token : ", accessToken)
 
-        const response = await fetch(`//localhost:3000/mycart/${accessTokenUserId}`, {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/mycart/${accessTokenUserId}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -129,7 +129,7 @@ console.log("The current index being targetted",itemIndex)
 
 
       const { accessToken, accessTokenUserId } = JSON.parse(sessionStorage.getItem("KicksNationz"));
-      const response = await fetch(`//localhost:3000/editcart/${accessTokenUserId}`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/editcart/${accessTokenUserId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

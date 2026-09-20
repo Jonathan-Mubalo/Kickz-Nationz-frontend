@@ -8,7 +8,9 @@ import Footer2 from "../components/Footer2.jsx";
 
 const  Products = () => {
 
-    const logOut = useRef();
+//     const logOut = useRef();
+
+
 //Usedto redirect a shopper to the product details component when a shoe is selected
    const navigate = useNavigate();
 
@@ -16,16 +18,16 @@ const  Products = () => {
 const { allProducts, setFilteredId } = useContext(ProductContext);
 
 
-const handleLogOut = () =>{
+// const handleLogOut = () =>{
    
    
-    sessionStorage.setItem("login", JSON.stringify({"isLoggedIn":false}));
-const access = JSON.parse(sessionStorage.getItem("login"));
+//     sessionStorage.setItem("login", JSON.stringify({"isLoggedIn":false}));
+// const access = JSON.parse(sessionStorage.getItem("login"));
 
-    console.log( " Home Page Log out: "+ access.isLoggedIn)
+//     console.log( " Home Page Log out: "+ access.isLoggedIn)
 
-    navigate("/Login")
-}
+//     navigate("/Login")
+// }
 
 const displayProductDetails = (event) =>{
       setFilteredId( () =>{ return event.target.id; });

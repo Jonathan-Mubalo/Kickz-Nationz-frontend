@@ -58,7 +58,7 @@ const CVV = useRef();
       try {
 
         const { accessTokenUserId, accessToken } = JSON.parse(sessionStorage.getItem("KicksNationz"));
-        const response = await fetch(`//localhost:3000/mycart/${accessTokenUserId}`, {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/mycart/${accessTokenUserId}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -95,7 +95,7 @@ const CVV = useRef();
       console.log("Function has started")
 
   const { accessTokenUserId, accessToken } = JSON.parse(sessionStorage.getItem("KicksNationz"));
-        const response = await fetch(`//localhost:3000/postcartinorder/${accessTokenUserId}`, {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/postcartinorder/${accessTokenUserId}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

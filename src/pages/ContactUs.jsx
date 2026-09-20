@@ -34,7 +34,7 @@ const ContactUs = () => {
       // Conditional statement checks to see if they are submitting a shoe review or if they are submitting an order review
       if (type === "form") {
         const { accessToken, accessTokenUserId } = JSON.parse(sessionStorage.getItem("KicksNationz"));
-        const response = await fetch(`//localhost:3000/postforms`, {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/postforms`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -83,7 +83,7 @@ const ContactUs = () => {
 
       if (type === "review") {
         const { accessToken, accessTokenUserId } = JSON.parse(sessionStorage.getItem("KicksNationz"));
-        const response = await fetch(`//localhost:3000/postforms`, {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/postforms`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -142,7 +142,7 @@ const ContactUs = () => {
       try {
 
         const { accessToken, accessTokenUserId } = JSON.parse(sessionStorage.getItem("KicksNationz"));
-        const response = await fetch(`//localhost:3000/products`, {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/products`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

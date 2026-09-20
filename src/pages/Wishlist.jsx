@@ -24,7 +24,7 @@ const Wishlist = () => {
             try {
 
                 const { accessToken, accessTokenUserId } = JSON.parse(sessionStorage.getItem("KicksNationz"))
-                const response = await fetch(`//localhost:3000/mywishlist/${accessTokenUserId}`, {
+                const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/mywishlist/${accessTokenUserId}`, {
                     method: "GET",
                     headers: { authorization: `Basic ${accessToken}` }
                 });
@@ -70,7 +70,7 @@ const Wishlist = () => {
         try {
 
             const { accessTokenUserId, accessToken } = JSON.parse(sessionStorage.getItem("KicksNationz"));
-            const response = await fetch(`//localhost:3000/removeFromWishlist/${accessTokenUserId}`, {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/removeFromWishlist/${accessTokenUserId}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -155,7 +155,7 @@ const Wishlist = () => {
 
 
                       const { accessTokenUserId, accessToken } = JSON.parse(sessionStorage.getItem("KicksNationz"));
-            const response = await fetch(`//localhost:3000/editwishlist/${accessTokenUserId}`, {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/editwishlist/${accessTokenUserId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

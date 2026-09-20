@@ -19,7 +19,7 @@ const OrderStatus = () => {
       try {
 
         const { accessTokenUserId, accessToken } = JSON.parse(sessionStorage.getItem("KicksNationz"));
-        const response = await fetch(`//localhost:3000/deliverystatus/${accessTokenUserId}`, {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/deliverystatus/${accessTokenUserId}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

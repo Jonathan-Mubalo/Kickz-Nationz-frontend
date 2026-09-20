@@ -62,7 +62,7 @@ const Login = () => {
 
     const handleLogin = async (event) => {
         event.preventDefault();
-        const logIn = fetch("http://localhost:3000/login", {
+        const logIn = fetch(`${import.meta.env.VITE_BACKEND_URL}/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
