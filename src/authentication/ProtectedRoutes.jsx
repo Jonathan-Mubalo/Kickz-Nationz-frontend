@@ -7,7 +7,6 @@ const access = JSON.parse(sessionStorage.getItem("KicksNationz"))
 
 if(access != null && access.isLoggedIn){
     return children;
-
 }
 else{
     return < Navigate to="/Login" />
