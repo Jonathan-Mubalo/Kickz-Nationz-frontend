@@ -6,7 +6,7 @@ import '../styles/Wishlist.css'
 const Wishlist = () => {
 
     // USESTATE THAT WILL STORE A USERS WISHLIST ITEMS THAT ARE COLLECTED FROM THE DATABASE
-    const [myWishlistDisplay, setMyWishlistDisplay] = useState()
+    const [myWishlistDisplay, setMyWishlistDisplay] = useState([])
 
     // VARIABLE USED TO LET A USER KNOW HOW MANY ITEMS ARE STOREDIN THE CART 
     const [noOfShoes, setNoOfShoes] = useState(0);
@@ -259,7 +259,7 @@ const Wishlist = () => {
 
                                 <p className="productDetails_shoeSelectedColor">Color: {(shoeColor) ? shoeColor : setShoeColor(() => { return item.productColor[0] })}</p>
                                 <section className="productDetails_shoeColorSection">
-                                    {item.productColor.map((itemColor) => {
+                                    {item.productColor && item.productColor.map((itemColor) => {
                                         return (
                                             <div className="wishlist_color" key={itemColor} id={itemColor} style={{
                                                 backgroundColor: itemColor.toLowerCase()
@@ -282,7 +282,7 @@ const Wishlist = () => {
 
                             {/* NED TO UPDATE WISHLIST ENDPOINT FOR EACH INDIVIDUAL SHOE */}
                             <div className="wishlist_addedDate">
-                                <span>Added on {item.addedOn.split("").slice(0, 10).join("")}</span>
+                                <span>Added on { (item.addedOn)? (item.addedOn.split("").slice(0, 10).join("")) : ""}</span>
                             </div>
 
 

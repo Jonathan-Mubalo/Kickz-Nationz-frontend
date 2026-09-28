@@ -84,17 +84,17 @@
 @media screen and (max-width:750px) {
    
 .products_main{
-    margin-bottom: 0px;
+    margin-bottom: 120px;
 }
 
 }
 
 
-@media screen and (max-width:490px) {
+@media screen and (max-width: 555px) {
    
 
     .products_h1{ 
-         margin-top: 200px;
+         margin-top: 80px;
 
     }
     .products_main{ 

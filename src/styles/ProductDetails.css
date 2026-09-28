@@ -334,14 +334,28 @@ height:32px ;
 
 }
 
-@media screen and (max-width: 550px){
+@media screen and (max-width:600px){
+
+    .productDetails_main {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100vw;
+  height: auto;
+  padding-top: 110px;
+  overflow-y: scroll;
+}
+
+}
+
+
+@media screen and (max-width: 555px){
 
   .productDetails_main {
   display: flex;
   flex-flow: column nowrap;
   width: 100vw;
   height: auto;
-  padding-top: 100px;
+  padding-top: 80px;
   overflow-y: scroll;
 }
 
@@ -391,12 +405,12 @@ height:32px ;
 .productDetails_goBackTag {
   height: 7%;
   align-content: center;
-  padding-top: 110px;
+  /* padding-top: 110px; */
 }
 
 .productDetails_shoeInfo {
-  padding-left: 5px;
-  padding-top: 5px;
+  padding-left: 10px;
+  padding-top: 10px;
 }
 
 .productDetails_imageSelectDiv {
