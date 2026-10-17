@@ -9,7 +9,7 @@ const Checkout = () => {
   const navigate = useNavigate();
 
   // USED TO STORE THE INFORMATION FROM THE CARTS COLLECTION IN THE STATE VARIABLE
-  const [myOrderSummary, setMyOrderSummary] = useState();
+  const [myOrderSummary, setMyOrderSummary] = useState([]);
 
   // STATE VARIABLE USED TO STORE THE TOTAL PRICE OF THE CART THAT IS BEING PAID FOR
   const [ paymentTotal, setPaymentTotal ] = useState(0);
@@ -110,10 +110,12 @@ shippingAddress: shippingAddress.current.value,
 postalCode: postalCode.current.value,
 city: city.current.value,
 province: province.current.value,
+totalPrice: paymentTotal,
 // paymentMethod: paymentMethod.current.value,
-cardNumber: cardNumber.current.value,
-expireryDate: expireryDate.current.value,
-  CVV: CVV.current.value
+// YOU ARENT SUPPOSED TO STORE THAT INFRORMATION
+// cardNumber: cardNumber.current.value,
+// expireryDate: expireryDate.current.value,
+//   CVV: CVV.current.value
           })
         });
 
@@ -121,6 +123,20 @@ expireryDate: expireryDate.current.value,
 
         console.log("Database info: ", data.message)
 
+// deliveryMethod.current.value = "";
+fullName.current.value = "";
+emailAddress.current.value = "";
+phoneNumber.current.value = "";
+shippingAddress.current.value = "";
+postalCode.current.value = "";
+city.current.value = "";
+province.current.value = "";
+// paymentMethod: paymentMethod.current.value,
+cardNumber.current.value = "";
+expireryDate.current.value = "";
+CVV.current.value = "";
+setMyOrderSummary([]);
+setPaymentTotal(0)
       console.log("Function has ended")
         
 
@@ -522,7 +538,7 @@ catch (error){
                 </span>
 
                 <strong>
-                  R150
+                 { (paymentTotal)? "R150" : "R0" } 
                 </strong>
 
               </div>
@@ -538,7 +554,7 @@ catch (error){
               </span>
 
               <strong>
-                R{(paymentTotal + 150)}
+                 R{ (paymentTotal)? `${(paymentTotal + 150)}` : 0 } 
               </strong>
 
             </div>

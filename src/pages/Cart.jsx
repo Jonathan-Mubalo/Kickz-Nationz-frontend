@@ -280,17 +280,8 @@ console.log("The current index being targetted",itemIndex)
                 <h2>R{totalPrice}</h2>
               </div>
 
-              <label>Have a promo code?</label>
 
-              <div className="cart_promo">
-                <input
-                  type="text"
-                  placeholder="Enter promo code"
-                />
-                <button>Apply</button>
-              </div>
-
-              <button className="cart_checkout" onClick={ ()=>{ return navigate("/Checkout") } }>
+              <button className="cart_checkout" onClick={ ()=>{ return (myCartDisplay.length !== 0) ? navigate("/Checkout") :"" } }>
                 Proceed to Checkout
               </button>
 

@@ -148,7 +148,7 @@ nav {
     /* display: none; */
      display: flex;
     transition-duration: 0.3s;
-    transform: translateY(-80px);
+    transform: translateY(-120px);
     flex-flow: column nowrap;
     align-items: center;
     position: absolute;
