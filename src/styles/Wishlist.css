@@ -10,7 +10,8 @@
     margin: 0 auto;
     margin-top: 100px;
     margin-bottom: 100px;
-    padding: 0px 20px 40px;
+    /* padding: 0px 0px 40px; */
+    padding: 0px 0px 40px;
 }
 
 
@@ -21,6 +22,7 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 25px;
+    padding: 0px 20px;
 }
 
 .wishlist_header h1 {
@@ -55,18 +57,31 @@
 }
 
 
+/*WISHLIST PRODUCT CONTAINER*/
+
+.wishlist_shoeDisplayContainer{
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+    /* border: 2px solid green; */
+    min-height: 40dvh;
+}
+
 /*WISHLIST PRODUCT*/
 
 .wishlist_item {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    /* width: 100%; */
+    width: 96%;
     /* grid-template-columns: 500px 1fr  280px; */
-    height: 45dvh;
+    height: 320px;
+    /* max-height: 400px; */
     padding: 18px;
-    border: 1px solid rgb(222, 222, 222);
+    border: 1px solid rgb(111, 105, 105);
     border-radius: 7px;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
+    margin: 5px auto;
+
 }
 
 /* PRODUCT IMAGES */
@@ -75,7 +90,8 @@
     display: flex;
     justify-content: space-between;
     height: 100%;
-    width: 40%;
+    /* width: 40%; */
+    width: 50%;
     /* border: 2px solid green; */
 }
 
@@ -137,23 +153,26 @@
 }
 
 .wishlist_productInformation h2 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 20px;
+    width: 50%;
+    /* border: 2px dotted purple; */
 }
 
 .wishlist_productInformation h3 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .wishlist_productDescription {
-    max-width: 440px;
+    /* max-width: 440px; */
     font-size: 0.85rem;
     line-height: 1.7;
     color: var( --wishlist-text-color);
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    /* display: none; */
 }
 
 /* DATE */
@@ -161,7 +180,8 @@
 .wishlist_addedDate {
      position: absolute;
     top: 10px;
-    right: 10px;
+    /* right: 10px; */
+    right: 0px;
     font-size: 0.8rem;
     color: var( --wishlist-text-color);
 }
@@ -193,8 +213,8 @@
 
 
 .wishlist_productSize {
-    font-size: 1.1rem;
-    margin-top:10px;
+    font-size: 0.9rem;
+    margin-top:5px;
 }
 
 /* BUTTON CONTAINER */
@@ -232,18 +252,15 @@
 /* REMOVE BUTTON */
 
 .wishlist_removeBtn {
+    background-color: #ffffff;
     width: 40%;
     height: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background-color: #ffffff;
-    border: 1px solid #111;
     border-radius: 4px;
     font-size: 13px;
+    font-weight: 500;
     cursor: pointer;
-    transition: 0.2s ease;
+    margin-bottom: 16px;
+    transition: 0.2s;
 }
 
 .wishlist_removeBtn:hover {
@@ -251,199 +268,322 @@
 }
 
 
-/* BENEFITS */
-
-.benefits {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    margin-top: 25px;
-    padding-top: 35px;
-    border-top: 1px solid #e5e5e5;
-}
-
-
-/* BENEFIT */
-
-.benefit {
-    display: flex;
-    align-items: flex-start;
-    gap: 17px;
-    min-height: 65px;
-    padding: 0 30px;
-    border-right: 1px solid #ddd;
-}
-
-.benefit:first-child {
-    padding-left: 0;
-}
-
-.benefit:last-child {
-    border-right: none;
-}
-
-
-/* BENEFIT ICON */
-
-.benefit_icon {
-    width: 35px;
-    min-width: 35px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 23px;
-    color: #111;
-}
-
-
-/* BENEFIT TEXT */
-
-.benefit h3 {
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 7px;
-}
-
-.benefit p {
-    max-width: 160px;
-    font-size: 11px;
-    line-height: 1.7;
-    color: #555;
-}
 
 
 /* RESPONSIVE */
 
-@media (max-width: 1100px) {
+@media (max-width: 1130px) {
+    
 
-    .wishlist_item {
-        grid-template-columns: 430px 1fr;
-    }
+/*WISHLIST PRODUCT*/
 
-    .wishlist_productPrice {
-        grid-column: 1 / -1;
-        padding-top: 0;
-    }
-
-    .wishlist_addedDate {
-        justify-content: flex-start;
-        margin-bottom: 15px;
-    }
-
-    .wishlist_productPrice {
-        margin-bottom: 12px;
-    }
-
-    .wishlist_addToCartBtn,
-    .wishlist_removeBtn {
-        max-width: 350px;
-    }
-
-    .benefits {
-        grid-template-columns: repeat(2, 1fr);
-        row-gap: 30px;
-    }
-
-    .benefit:nth-child(2) {
-        border-right: none;
-    }
+.wishlist_item {
+    height: 390px;
 }
+
+/* PRODUCT IMAGES */
+
+  .wishlist_productImages{
+    display: flex;
+    flex-flow: column wrap;
+    height: 100%;
+    width: 45%;
+}
+
+/* MAIN IMAGE */
+
+.wishlist_mainImage {
+    width: 100%;
+    height: 60%;
+    /* border: 3px solid rgb(128, 0, 87); */
+}
+
+.wishlist_mainImage img {
+    width: 100%;
+    height: 100%;
+}
+
+/* WISHLIST INFORMATION CONTAINER */
+.wishlist_productInformation{
+    width: 53%;
+    position:relative;
+}
+
+/* THUMBNAILS */
+
+.wishlist_imgSelectionContainer {
+    flex-flow: row wrap;
+    width: 100%;
+    height:40%;
+    /* border: 2px solid green; */
+}
+
+ .wishlist_imgSelection {
+    width: 40%;
+    height: 40%;
+}
+
+/* DATE */
+
+.wishlist_addedDate {
+    right: -5px;
+    font-size: 0.7rem;
+}
+
+
+/* COLOR  */
+
+.wishlist_selectedShoeColor {
+    font-size: 0.9rem; 
+}
+
+/* DIV USED TO HOLD THE SHOES COLOR */
+
+.wishlist_shoeColor {
+  padding: 8px;
+} 
+
+/* BUTTON CONTAINER */
+
+.wishlist_btnContainer{
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    /* margin: 10px auto 5px; */
+    position:absolute;
+    bottom:0px;
+    width:100%;
+}
+
+/* ADD TO CART */
+
+.wishlist_addToCartBtn {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+/* REMOVE BUTTON */
+
+.wishlist_removeBtn {
+    background-color: #ffffff;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 0px;
+}
+
+}
+
+@media (max-width: 900px) { 
+
+    .wishlist_main{
+margin-top: 85px;
+    }
+
+    /* MAIN SHOE DISPLAY CONTAINER  */
+
+.wishlist_shoeDisplayContainer{
+grid-template-columns:  1fr;
+}
+
+/*WISHLIST PRODUCT*/
+
+.wishlist_item {
+      height: 300px;
+ }
+
+/* PRODUCT IMAGES */
+
+  .wishlist_productImages{
+    width: 50%;
+}
+
+
+/* MAIN IMAGE */
+
+.wishlist_mainImage {
+    width: 73%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.wishlist_mainImage img {
+    width: 100%;
+    height: 100%;
+   }
+
+
+/* THUMBNAILS */
+
+.wishlist_imgSelectionContainer {
+    flex-direction: column;
+    width: 25%;
+    height:100%;
+}
+
+ .wishlist_imgSelection {
+    width: 80%;
+    height: 20%;
+}
+
+ .wishlist_imgSelection img {
+    width: 100%;
+    height: 100%;
+}
+
+/* PRODUCT INFORMATION */
+
+.wishlist_productInformation{
+    width: 57%;
+}
+
+/* DATE */
+
+.wishlist_addedDate {
+    right: 0px;
+    font-size: 0.75rem;
+}
+
+
+/* COLOR  */
+
+.wishlist_selectedShoeColor {
+    font-size: 1rem;
+}
+
+/* SHOES COLOR */
+
+.wishlist_shoeColor {
+  padding: 12px;
+}
+
+.wishlist_productSize {
+    font-size: 0.9rem;
+    margin-top:5px;
+}
+
+/* BUTTON CONTAINER */
+
+.wishlist_btnContainer{
+    flex-flow: row wrap;
+    justify-content: space-around;
+    width: 100%;
+position:static;
+}
+
+/* ADD TO CART */
+
+.wishlist_addToCartBtn {
+    width: 45%;
+}
+
+/* REMOVE BUTTON */
+
+.wishlist_removeBtn {
+    width: 45%;
+}
+
+} 
 
 
 /* TABLET */
 
-@media (max-width: 750px) {
+@media (max-width: 700px) {
 
-    .wishlist {
-        padding: 30px 20px;
+    .wishlist_main {
+margin-top: 100px;
     }
 
-    .wishlist_header {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 20px;
-    }
+    /* SHOE NAME TAG */
+
+    .wishlist_productInformation h2 {
+     width: 100%;
+ }
+
+  /* DATE */
+
+.wishlist_addedDate {
+     /* position: static; */
+     display: none;
+     /* margin-bottom:1.5px; */
+  }
 
     .wishlist_header h1 {
         font-size: 27px;
     }
 
     .wishlist_item {
-        grid-template-columns: 1fr;
         gap: 25px;
+        height:320px
     }
 
       .wishlist_productImages{
         width: 100%;
     }
 
-    .main_image {
-        flex: 1;
-    }
-
     .product_information {
         padding-top: 0;
     }
 
-    .wishlist_productPrice {
-        grid-column: auto;
-    }
-
-    .wishlist_addToCartBtn,
-    .wishlist_removeBtn {
-        max-width: none;
-    }
-
-    .benefits {
-        grid-template-columns: 1fr;
-    }
-
-    .benefit {
-        border-right: none;
-        border-bottom: 1px solid #ddd;
-        padding: 0 0 20px;
-    }
-
-    .benefit:last-child {
-        border-bottom: none;
-    }
 }
 
 
 /* MOBILE */
 
-@media (max-width: 500px) {
+@media (max-width: 555px) {
 
-    .wishlist_main {
-        padding: 25px 12px;
+       .wishlist_main {
+margin: 80px 0px 0px;
+padding-bottom: 0px;
     }
-
-    .wishlist_item {
+    
+    .wishlist_item{
+flex-flow: column;
+height: auto;
         padding: 12px;
+        width:90%;
+        max-width:380px ;
     }
 
     .wishlist_productImages {
         height: 220px;
+        
     }
 
-    .main_image {
-        height: 220px;
-    }
-
-    .wishlist_thumbnailContainer {
+      .wishlist_thumbnailContainer {
         width: 50px;
     }
 
-     .wishlist_thumbnail {
-        width: 50px;
-        height: 39px;
+.wishlist_productInformation {
+    width: 100%;
+}
+.wishlist_productInformation h2 {
+        font-size: 1.4rem;
+        margin: 0px;
+        width: 100%;
+        /* border: 2px dashed green; */
     }
 
-    .product_information h2 {
-        font-size: 18px;
+        .wishlist_addToCartBtn,
+    .wishlist_removeBtn {
+        width: 48%;
+        padding: 0px 2px;
+        font-size: 0.75rem; 
     }
 
-    .benefit {
-        gap: 10px;
-    }
+
+}
+
+@media (max-width: 450px) {
+
+.wishlist_header{
+padding: 0px 8px;
+}
+
+
+.wishlist_moveAllBtn {
+    display: flex;
+    align-items: center;
+    padding: 10px 5px;
+}
+
 }

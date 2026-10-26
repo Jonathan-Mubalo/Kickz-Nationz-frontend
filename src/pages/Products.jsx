@@ -49,49 +49,6 @@ const displayProductDetails = (event) =>{
        </section>
        )
 })}
-
-{/* <section className="productsSection">
-       <div className="product_image_div"><img className="productImg" src="" /></div>
-       <h2 className="products_h2">Nike airforce 1</h2>
-       <h2 className="products_h2"><span>R1000</span></h2>
-       <button className="productsBtn">View product</button>
-</section>
-<section className="productsSection">
-       <div className="product_image_div"><img src="" /></div>
-       <h2 className="products_h2">Nike airforce 1</h2>
-       <h2 className="products_h2"><span>R1000</span></h2>
-       <button className="productsBtn">View product</button>
-</section>
-<section className="productsSection">
-       <div className="product_image_div"><img src="" /></div>
-       <h2 className="products_h2">Nike airforce 1</h2>
-       <h2 className="products_h2"><span>R1000</span></h2>
-       <button className="productsBtn">View product</button>
-</section>
-<section className="productsSection">
-       <div className="product_image_div"><img src="" /></div>
-       <h2 className="products_h2">Nike airforce 1</h2>
-       <h2 className="products_h2"><span>R1000</span></h2>
-       <button className="productsBtn">View product</button>
-</section>
-<section className="productsSection">
-       <div className="product_image_div"><img src="" /></div>
-       <h2 className="products_h2">Nike airforce 1</h2>
-       <h2 className="products_h2"><span>R1000</span></h2>
-       <button className="productsBtn">View product</button>
-</section>
-<section className="productsSection">
-       <div className="product_image_div"><img src="" /></div>
-       <h2 className="products_h2">Nike airforce 1</h2>
-       <h2 className="products_h2"><span>R1000</span></h2>
-       <button className="productsBtn">View product</button>
-</section>
-<section className="productsSection">
-       <div className="product_image_div"><img src="" /></div>
-       <h2 className="products_h2">Nike airforce 1</h2>
-       <h2 className="products_h2"><span>R1000</span></h2>
-       <button className="productsBtn">View product</button>
-</section> */}
 </main>
 <Footer2 />
 </>

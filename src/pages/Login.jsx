@@ -146,7 +146,7 @@ const Login = () => {
 
                 </section>
                 <section className="login-right">
-                    <form action="" className="loginForm">
+                    <form onSubmit={handleLogin} action="" className="loginForm">
 
                         <p ref={loginGeneralValidation}></p>
                         <br />
@@ -168,7 +168,7 @@ const Login = () => {
                         </section>
                         <p ref={loginPasswordValidation} ></p>
                         <br />
-                        <button type="button" target="" className="login-btn" onClick={handleLogin}>Log In</button>
+                        <button type="submit" target="" className="login-btn" >Log In</button>
                     </form>
                     <p>Dont have an account? <span onClick={displaySignup} ref={signupSpan}>Sign up</span> </p>
 

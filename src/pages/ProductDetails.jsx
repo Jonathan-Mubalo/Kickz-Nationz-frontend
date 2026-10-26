@@ -54,7 +54,6 @@ const ProductDetails = () => {
     setSelectedImage(() => { return imgUrl })
   }
 
-
   // ENDPOINT FUNCTION USED TO ADD A SHOE TO A CART
   console.log("Currnt shoe: ", currentShoe)
   

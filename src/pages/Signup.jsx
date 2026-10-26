@@ -165,7 +165,7 @@ const Signup = () => {
 
                 </section>
                 <section className="signup-right">
-                    <form action="">
+                    <form onSubmit={handleSignup}>
                         <h3>Create your account</h3>
                         <p id="slogan">Join Kickz Nationz and unlock the best in sneakers.</p>
                         <label htmlFor="fullName">Full Name</label>
@@ -199,7 +199,7 @@ const Signup = () => {
                             </button>
                         </section>
                         <p ref={formValidation} ></p>
-                        <button type="submit" target="" onClick={handleSignup} className="signup-btn" >Sign up</button>
+                        <button type="submit" className="signup-btn" >Sign up</button>
                     </form>
                     <p className="span">Dont have an account? <span onClick={displayLogin} ref={loginSpan}>Log in</span> </p>
 
