@@ -5,7 +5,6 @@ import Footer2 from "../components/Footer2"
 
 const ContactUs = () => {
   const [feedbackType, setFeedbackType] = useState("feedback");
-  const [rating, setRating] = useState(0);
 
   // STATE VARIABLE THAT IS USED TO STORE THE NAMES OF ALL OF THE AVAILABLE SHOES
   const [allShoes, setAllshoes] = useState([]);
@@ -72,16 +71,23 @@ const ContactUs = () => {
   })
 })
       }
-
-
       }
 
-
-
-
-
-
       if (type === "review") {
+
+
+        // MAKING SURE THAT A SHOE IS SELECTED IF THEY FORGOT TO SELECT A SPECIFIC SHOE
+        if(!shoeReview.name){
+          setShoeReview( (prev)=>{ return { ...prev, name:allShoes[0] } })
+        }
+       
+        // ALERT THEM TO GIVE THE SHOE A RATING IF THEY DID NOT RATE IT YET
+
+         if(!shoeReview.rating){
+          alert(`Please provide a rating before submitting your review.`)
+          return;
+        }
+
         const { accessToken, accessTokenUserId } = JSON.parse(sessionStorage.getItem("KicksNationz"));
         const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/postforms`, {
           method: "POST",
@@ -89,7 +95,12 @@ const ContactUs = () => {
             "Content-Type": "application/json",
             authorization: `Basic ${accessToken}`
           },
-          body: JSON.stringify({ ...shoeReview })
+          body: JSON.stringify({ 
+            name: ( shoeReview.name || allShoes[0] ) ,
+    rating: shoeReview.rating,
+    subject: shoeReview.subject,
+    message: shoeReview.message 
+          })
         })
 
 
@@ -121,11 +132,7 @@ const ContactUs = () => {
   })
 })
       }
-
-
       }
-
-
 
     } catch (error) {
       console.error(error);
@@ -371,12 +378,12 @@ const ContactUs = () => {
                     maxLength="1000"
                     className="Contacts_textarea"
                     required
-                    value={formDetails.messsage}
+                    value={formDetails.message}
                     onChange={(event) => { setFormDetails((prevForm) => { return { ...prevForm, message: event.target.value } }) }}
                   />
 
                   <span className="Contacts_characterCount">
-                    0 / 1000
+                    {formDetails.message.length} / 1000
                   </span>
 
                 </div>
@@ -389,8 +396,6 @@ const ContactUs = () => {
                 onClick={() => { return submitForm("form") }}
                 className="Contacts_submitButton"
               >
-
-
                 Send Feedback
               </button>
 
@@ -538,26 +543,22 @@ const ContactUs = () => {
                   />
 
                   <span className="Contacts_characterCount">
-                    0 / 1000
+                    {shoeReview.message.length} / 1000
                   </span>
 
                 </div>
 
               </div>
 
-              {/* Submit */}
               <button
                 type="button"
                 onClick={() => { return submitForm("review") }}
                 className="Contacts_submitButton"
               >
-
                 <span className="Contacts_buttonIcon">
                   ☆
                 </span>
-
                 Submit Review
-
               </button>
 
             </form>

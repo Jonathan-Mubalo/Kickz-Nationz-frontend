@@ -2,7 +2,7 @@
  
 const BASE = "http://localhost:5173";
 // Backend base URL (same value as your VITE_BACKEND_URL).
-const BACKEND = "http://localhost:3000"; // change to your backend's URL
+const BACKEND = "http://54.246.194.54:3000"; // change to your backend's URL
  
 const VALID_USER = { email: "testcase1@gmail.com", password: "qwerty78" };
  

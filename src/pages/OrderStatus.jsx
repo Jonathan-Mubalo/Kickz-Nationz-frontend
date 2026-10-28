@@ -78,7 +78,7 @@ const OrderStatus = () => {
                       </span>
 
                       <span className="orderTracking_summaryValue">
-                        KNZ45872
+                        {item["_id"].slice(0,15)}
                       </span>
                     </div>
 
@@ -130,7 +130,7 @@ const OrderStatus = () => {
                             <br />
                             {item.city}, {item.postalCode}
                             <br />
-                            {item.province} {item.city}
+                            {item.province}
                           </p>
                         </div>
                       </div>

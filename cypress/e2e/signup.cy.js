@@ -4,7 +4,7 @@ const SIGNUP_URL = "http://localhost:5173/Signup";
  
 import { slowCypressDown } from "cypress-slow-down";
 
-slowCypressDown(1000);
+slowCypressDown(600);
 // Must already exist in your "Users" collection (used for the duplicate-email test)
 const EXISTING_USER = { email: "testcase1@gmail.com", password: "qwerty78" };
  
