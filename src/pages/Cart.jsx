@@ -12,7 +12,7 @@ const Cart = () => {
   const navigate = useNavigate();
 
   // STATE USED TO STORE A CART FOR A USER
-  const [myCartDisplay, setMyCartDisplay] = useState();
+  const [myCartDisplay, setMyCartDisplay] = useState([]);
 
   // Will be used to track how many shoes a customer is choosing to buy
   const [shoeQuantity, setShoeQuantity] = useState({});
@@ -163,7 +163,7 @@ console.log("The current index being targetted",itemIndex)
             {/* Left Side */}
             <section className="cart_items">
 
-              {myCartDisplay && myCartDisplay.map((item, index) => {
+              { myCartDisplay.map((item, index) => {
                 return (
                   <div className="cart_item" key={index}>
                     <img
@@ -201,65 +201,7 @@ console.log("The current index being targetted",itemIndex)
                 )
               })}
 
-
-
-
-              {/* Item 1 */}
-              {/* <div className="cart_item">
-              <img
-                src=""
-                alt="Nike Air Force 1"
-                className="cart_image"
-              />
-
-              <div className="cart_details">
-                <h3>Nike Air Force 1</h3>
-                <p>Color: White</p>
-                <p>Size: 8</p>
-                <h4>R1300</h4>
-              </div>
-
-              <div className="cart_quantity">
-                <button>-</button>
-                <span>1</span>
-                <button>+</button>
-              </div>
-
-              <h4 className="cart_price">R1300</h4>
-
-              <button className="cart_remove">×</button>
-            </div>
-
-
-
-
-
-            <div className="cart_item">
-              <img
-                src=""
-                alt="Adidas Forum Low"
-                className="cart_image"
-              />
-
-              <div className="cart_details">
-                <h3>Adidas Forum Low</h3>
-                <p>Color: White / Black</p>
-                <p>Size: 9</p>
-                <h4>R1500</h4>
-              </div>
-
-              <div className="cart_quantity">
-                <button>-</button>
-                <span>1</span>
-                <button>+</button>
-              </div>
-
-              <h4 className="cart_price">R1500</h4>
-
-              <button className="cart_remove">×</button>
-            </div> */}
-
-              <button className="cart_continue" onClick={() => { return navigate("/") }} >
+              <button className="cart_continueBtn" onClick={() => { return navigate("/") }} >
                 ← Continue Shopping
               </button>
             </section>
@@ -267,7 +209,13 @@ console.log("The current index being targetted",itemIndex)
             {/* Right Side */}
             <aside className="cart_summary">
               <h2>Order Summary</h2>
-
+<div className="cart_summary_items">
+  {myCartDisplay.map(({productName, price, quantity}, index) => {
+    return(
+  <p key={index} className="cart_summary_item" ><span>{ productName }</span><span>R{ price*quantity }</span></p>
+    )
+  })}
+</div>
               <div className="cart_summary_row">
                 <span>Subtotal</span>
                 <span>R{totalPrice}</span>
