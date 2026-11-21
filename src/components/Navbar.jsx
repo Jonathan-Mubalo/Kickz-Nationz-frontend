@@ -52,22 +52,25 @@ const Navbar = () => {
               Products
             </Link>
           </li>
+          <hr className="nav-hr" />
           <li className="navbar_li">
             <Link to="/Cart" className="navbarLinks">
               Cart
             </Link>
           </li>
+          <hr className="nav-hr" />
           <li className="navbar_li">
             <Link to="/Wishlist" className="navbarLinks">
               Wishlist
             </Link>
           </li>
-          {/* <li className="navbar_li"><Link to="/Checkout" className="navbarLinks" >Checkout</Link></li> */}
+          <hr className="nav-hr" />
           <li className="navbar_li">
             <Link to="/OrderStatus" className="navbarLinks">
               Order Status
             </Link>
           </li>
+          <hr className="nav-hr" />
           <li className="navbar_li">
             <Link to="/ContactUs" className="navbarLinks">
               Contact Us
